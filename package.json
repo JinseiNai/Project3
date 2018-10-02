@@ -1,5 +1,5 @@
 {
-  "name": "Project3",
+  "name": "mern",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -13,11 +13,6 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JinseiNai/Project3.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -30,9 +25,5 @@
     "express": "^4.15.4",
     "mongoose": "^5.0.17",
     "if-env": "^1.0.4"
-  },
-  "bugs": {
-    "url": "https://github.com/JinseiNai/Project3/issues"
-  },
-  "homepage": "https://github.com/JinseiNai/Project3#readme"
+  }
 }
