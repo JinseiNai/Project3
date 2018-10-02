@@ -1,10 +1,9 @@
 {
-  "name": "click-it",
+  "name": "mern",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
-    "@material-ui/core": "^3.1.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.14",
