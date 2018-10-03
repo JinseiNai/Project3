@@ -1,9 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Login from "./components/LoginForm/LoginForm";
+import Grid from '@material-ui/core/Grid';
+import LoginPage from "./components/pages/LoginPage";
+
 
 const App = () => (
-  <Login />
+  <Router>
+    <div>
+      <Switch>
+        <Route exact path="/" component={ LoginPage } />
+      </Switch>
+    </div>
+  </Router>
 );
 
 export default App;
