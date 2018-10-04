@@ -28,7 +28,7 @@ const styles = theme => ({
 
 
   
-class Login extends Component {
+class SignUp extends Component {
     state = {
         username: "",
         password: ""
@@ -47,7 +47,7 @@ class Login extends Component {
             <div>
                 <Grid container spacing={24} className={ classes.root }>
                     <Grid item xs={12} className={ classes.root } style={{ padding: 0 }}>
-                    <h4 style={{ marginBottom: 0 }}>Login</h4>
+                    <h4 style={{ marginBottom: 0 }}>Sign Up</h4>
                     </Grid>
                     <form className={ classes.container } noValidate autoComplete="off">
                         <TextField
@@ -75,8 +75,8 @@ class Login extends Component {
     }
 }
 
-Login.propTypes = {
+SignUp.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Login)
+export default withStyles(styles)(SignUp)
