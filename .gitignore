@@ -23,3 +23,5 @@ yarn-error.log*
 
 # api keys
 .env
+
+# add back into package.json // "seed": "node scripts/seedDB.js"
