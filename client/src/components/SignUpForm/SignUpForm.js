@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
+import SubmitBtn from '../SignupButton/index';
 
 const styles = theme => ({
     root: {
@@ -68,6 +69,7 @@ class SignUp extends Component {
                             margin="normal"
                             variant="outlined"
                         />
+                        <SubmitBtn />
                     </form>
                 </Grid>
             </div>
