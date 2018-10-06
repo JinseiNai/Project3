@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 
-// import AppBar from './AppBar';
+import AppBar from './AppBar';
 import './Header.css';
-import PersistentDrawer from './PersistentDrawer';
+// import Footer from '../Footer/Footer';
+// import PersistentDrawer from './PersistentDrawer';
 
 class Header extends Component {
   render() {
     return (
       <div className="Header-Div">
-      < PersistentDrawer />
         <header className="Header">
+        <AppBar />
           <h1 className="Header-title" >GTFO!
           {/* Food Decid-a-nator!, Indecisi-Food, Food Roulette, Food Now!, Feed Me */}
           </h1>
@@ -20,10 +21,9 @@ class Header extends Component {
         </p>
   );
 
-
       </div>
     );
   }
-}
 
+};
 export default Header;

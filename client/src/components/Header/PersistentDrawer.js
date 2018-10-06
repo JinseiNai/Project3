@@ -121,6 +121,7 @@ class PersistentDrawer extends React.Component {
   render() {
     const { classes, theme } = this.props;
     const { anchor, open } = this.state;
+    // const open = Boolean(anchorEl);
 
     const drawer = (
       <Drawer
@@ -182,7 +183,7 @@ class PersistentDrawer extends React.Component {
                 <MenuIcon />
               </IconButton>
               <Typography variant="title" color="inherit" noWrap>
-                
+                Persistent drawer
               </Typography>
             </Toolbar>
           </AppBar>
