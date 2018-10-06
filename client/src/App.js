@@ -1,35 +1,19 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import Login from "./components/LoginForm/LoginForm";
-import LoginButton from "./components/LoginButton/LoginButton";
-import SignupButton from "./components/SignupButton/SignupButton";
-import RandomizerButton from "./components/RandomizerButton";
-import NavBar from "./components/NavBar/NavBar";
-import SubmitButton from "./components/SubmitButton/SubmitButton";
-import RestaurantsButton from "./components/RestaurantsButton/RestaurantsButton";
-
+import Grid from '@material-ui/core/Grid';
+import LoginPage from "./components/pages/LoginPage";
+import SignUpForm from "./components/SignUpForm/SignUpForm";
 
 
 const App = () => (
-  <div>
-  <Header />
-  <NavBar />
-  <Login />
-  <div>
-  <LoginButton />
-  <span>  </span>
-  <SignupButton />
-  </div>
-  <RandomizerButton />
-  <span> </span>
-  <RestaurantsButton />
-  <div>
-  <SubmitButton />
-  </div>
-  <Footer />
-  </div>
+  <Router>
+    <div>
+      <Switch>
+        <Route exact path="/" component={ LoginPage } />
+        <Route path="/signup" component={ SignUpForm } />
+      </Switch>
+    </div>
+  </Router>
 );
 
 export default App;
