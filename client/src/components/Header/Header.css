@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .Header-Div {
     text-align: center;
   }
@@ -51,3 +52,25 @@
   .Header-intro {
     font-size: large;
   }
+=======
+.header {
+    background: rgb(72, 72, 243);
+    height: 200px;
+  }
+  
+  .header h1 {
+    margin: 0;
+    padding-top: 75px;
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+  }
+
+  .header h2 {
+    padding: 20px;
+    text-align: center;
+    color: black;
+    font-size: 2rem;
+  }
+  
+>>>>>>> 2bd10bf948ed742ffc8897f384af3ef895dab083
