@@ -4,6 +4,8 @@ import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 
+import Header from '../Header';
+
 const styles = theme => ({
     root: {
         justifyContent: 'center',
@@ -44,7 +46,9 @@ class Login extends Component {
         const { classes } = this.props;
 
         return (
+            // <Router>
             <div>
+                <Header />
                 <Grid container spacing={24} className={ classes.root }>
                     <Grid item xs={12} className={ classes.root } style={{ padding: 0 }}>
                     <h4 style={{ marginBottom: 0 }}>Login</h4>
@@ -70,7 +74,9 @@ class Login extends Component {
                         />
                     </form>
                 </Grid>
+                
             </div>
+            // </Router>
         )
     }
 }
