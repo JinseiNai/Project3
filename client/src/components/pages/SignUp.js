@@ -6,4 +6,4 @@ const SignUpPage = () => (
     <SignUpForm />
 )
 
-export default SignUpPage
+export default SignUpPage;

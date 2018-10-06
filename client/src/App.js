@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
 import LoginPage from "./components/pages/LoginPage";
 import SignUpForm from "./components/SignUpForm/SignUpForm";
-import Header from './components/Header';
+import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
 const App = () => (
