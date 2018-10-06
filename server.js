@@ -3,6 +3,8 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
+const passport = require("passport");
+const passport = require("passport-local");
 const PORT = process.env.PORT || 3001;
 
 // Define middleware here
@@ -12,7 +14,12 @@ app.use(bodyParser.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+// ===== Passport ====
+app.use(passport.initialize())
+app.use(passport.session()) // will call the deserializeUser
 // Add routes, both API and view
+/* Express app ROUTING */
+app.use('/auth', require('./auth'))
 app.use(routes);
 
 // Connect to the Mongo DB
