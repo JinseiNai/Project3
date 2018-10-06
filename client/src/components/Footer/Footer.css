@@ -2,6 +2,7 @@
 	background-color: rgb(72, 72, 243);
 	width: 100%;
 	position: relative;
+	bottom: 0px;
 }
 
 .footer p{
@@ -9,4 +10,5 @@
 	text-align: center;
 	padding: 10px 0;
 	font-size: 15px;
+	
 }

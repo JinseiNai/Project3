@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 
+
 const styles = theme => ({
     root: {
         justifyContent: 'center',
@@ -66,7 +67,9 @@ class Login extends Component {
         }
 
         return (
+            // <Router>
             <div>
+                <div>
                 <Grid container spacing={24} className={ classes.root }>
                     <Grid item xs={12} className={ classes.root } style={{ padding: 0 }}>
                     <h4 style={{ marginBottom: 0 }}>Login</h4>
@@ -94,7 +97,9 @@ class Login extends Component {
                         <button>Login</button>
                     </form>
                 </Grid>
+                </div>
             </div>
+            // </Router>
         )
     }
 }
