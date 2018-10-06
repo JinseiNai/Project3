@@ -1,20 +1,44 @@
-.header {
-    background: rgb(72, 72, 243);
-    height: 200px;
+.Header-Div {
+    text-align: center;
+    left: 0px;
+    right: 0px;
+    top: 0px;
   }
   
-  .header h1 {
-    margin: 0;
-    padding-top: 75px;
-    text-align: center;
-    color: white;
-    font-size: 3rem;
-  }
-
-  .header h2 {
+  .Header {
+    /* background-color: rgb(37, 158, 228); */
+    background-image: url("food-pattern.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+      
+    /* background shadow option */
+    background-color: rgb(233, 233, 245);
+    background-blend-mode: multiply;  
+  
+    height: 250px;
     padding: 20px;
-    text-align: center;
-    color: black;
-    font-size: 2rem;
+    color: rgb(224, 44, 44);
+    font-size: 200%;
+  
+  
+    /* text outline */
+    text-shadow: 1px 1px 2px rgb(77, 4, 4);
   }
   
+  .Header-title {
+    font-size: 1.5em;
+  
+  /* font choices */
+  
+  /* font-family: 'K2D', sans-serif; */
+  /* font-family: 'Fahkwang', sans-serif; */
+  /* font-family: 'Niramit', sans-serif; */
+  /* font-family: 'Rubik', sans-serif; */
+  /* font-family: 'Kanit', sans-serif; */
+  /* font-family: 'Concert One', cursive; */
+  font-family: 'Fredoka One', cursive;
+  }
+  
+  .Header-intro {
+    font-size: large;
+  }

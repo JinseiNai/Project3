@@ -44,7 +44,9 @@ class Login extends Component {
         const { classes } = this.props;
 
         return (
+            // <Router>
             <div>
+                <div>
                 <Grid container spacing={24} className={ classes.root }>
                     <Grid item xs={12} className={ classes.root } style={{ padding: 0 }}>
                     <h4 style={{ marginBottom: 0 }}>Login</h4>
@@ -70,7 +72,9 @@ class Login extends Component {
                         />
                     </form>
                 </Grid>
+                </div>
             </div>
+            // </Router>
         )
     }
 }
