@@ -3,7 +3,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
-import SubmitBtn from '../SignupButton/index';
+import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 const styles = theme => ({
     root: {
@@ -30,9 +31,13 @@ const styles = theme => ({
 
   
 class SignUp extends Component {
-    state = {
-        username: "",
-        password: ""
+    constructor() {
+        super()
+        this.state = {
+            username: "",
+            password: "",
+            redirectTo: null
+        }
     }
 
     handleChange = name => event => {
@@ -41,8 +46,21 @@ class SignUp extends Component {
         });
       };
 
+    handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('username: ' + this.state.username)
+        console.log('password: ' + this.state.password)
+        // Logic to do a post
+        this.setState({
+            redirectTo: '/'
+        })
+    }
+
     render() {
         const { classes } = this.props;
+        if (this.state.redirectTo) {
+            return <Redirect to={{ pathname: this.state.redirectTo }} />
+        }
 
         return (
             <div>
@@ -50,7 +68,7 @@ class SignUp extends Component {
                     <Grid item xs={12} className={ classes.root } style={{ padding: 0 }}>
                     <h4 style={{ marginBottom: 0 }}>Sign Up</h4>
                     </Grid>
-                    <form className={ classes.container } noValidate autoComplete="off">
+                    <form className={ classes.container } noValidate autoComplete="off" onSubmit={ this.handleSubmit }>
                         <TextField
                             id="outlined-username"
                             label="Username"
@@ -66,10 +84,11 @@ class SignUp extends Component {
                             className={ classes.textField }
                             type="password"
                             autoComplete="current-password"
+                            onChange={this.handleChange('password')}
                             margin="normal"
                             variant="outlined"
                         />
-                        <SubmitBtn />
+                        <button>Sign Up</button>
                     </form>
                 </Grid>
             </div>

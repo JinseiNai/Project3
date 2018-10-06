@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import axios from 'axios'
