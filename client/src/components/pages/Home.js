@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import SignUpButton from '../SignupButton/index'
 import LoginButton from '../LoginButton/index'
-import Footer from '../Footer/index'
+
 
 const HomePage= () => (
     <div>

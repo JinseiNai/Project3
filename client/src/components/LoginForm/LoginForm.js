@@ -3,7 +3,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
-import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 
 
@@ -14,18 +13,18 @@ const styles = theme => ({
         textAlign: 'center',
     },
     container: {
-      display: 'flex',
-      flexWrap: 'wrap',
+        display: 'flex',
+        flexWrap: 'wrap',
     },
     textField: {
-      marginLeft: theme.spacing.unit,
-      marginRight: theme.spacing.unit
+        marginLeft: theme.spacing.unit,
+        marginRight: theme.spacing.unit
     },
     dense: {
-      marginTop: 16,
+        marginTop: 16,
     },
     menu: {
-      width: 200,
+        width: 200,
     },
     rightIcon: {
         marginLeft: theme.spacing.unit,
@@ -33,7 +32,7 @@ const styles = theme => ({
 });
 
 
-  
+
 class Login extends Component {
     constructor() {
         super()
@@ -42,19 +41,21 @@ class Login extends Component {
             password: "",
             redirectTo: null
         }
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
     handleChange = name => event => {
         this.setState({
-          [name]: event.target.value,
+            [name]: event.target.value,
         });
-      };
+    };
 
-    handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('username: ' + this.state.username)
-        console.log('password: ' + this.state.password)
-        // Logic to do a post
+    handleSubmit(event) {
+        event.preventDefault()
+        console.log('handleSubmit')
+        console.log(`${this.state.username} + ${this.state.password}`)
+        this.props._login(this.state.username, this.state.password)
         this.setState({
             redirectTo: '/'
         })
@@ -70,33 +71,33 @@ class Login extends Component {
             // <Router>
             <div>
                 <div>
-                <Grid container spacing={24} className={ classes.root }>
-                    <Grid item xs={12} className={ classes.root } style={{ padding: 0 }}>
-                    <h4 style={{ marginBottom: 0 }}>Login</h4>
+                    <Grid container spacing={24} className={classes.root}>
+                        <Grid item xs={12} className={classes.root} style={{ padding: 0 }}>
+                            <h4 style={{ marginBottom: 0 }}>Login</h4>
+                        </Grid>
+                        <form className={classes.container} noValidate autoComplete="off" onSubmit={this.handleSubmit}>
+                            <TextField
+                                id="outlined-username"
+                                label="Username"
+                                className={classes.textField}
+                                value={this.state.name}
+                                onChange={this.handleChange('username')}
+                                margin="normal"
+                                variant="outlined"
+                            />
+                            <TextField
+                                id="outlined-password-input"
+                                label="Password"
+                                className={classes.textField}
+                                type="password"
+                                autoComplete="current-password"
+                                onChange={this.handleChange('password')}
+                                margin="normal"
+                                variant="outlined"
+                            />
+                            <button>Login</button>
+                        </form>
                     </Grid>
-                    <form className={ classes.container } noValidate autoComplete="off" onSubmit={ this.handleSubmit }>
-                        <TextField
-                            id="outlined-username"
-                            label="Username"
-                            className={ classes.textField }
-                            value={this.state.name}
-                            onChange={this.handleChange('username')}
-                            margin="normal"
-                            variant="outlined"
-                        />
-                        <TextField
-                            id="outlined-password-input"
-                            label="Password"
-                            className={ classes.textField }
-                            type="password"
-                            autoComplete="current-password"
-                            onChange={this.handleChange('password')}
-                            margin="normal"
-                            variant="outlined"
-                        />
-                        <button>Login</button>
-                    </form>
-                </Grid>
                 </div>
             </div>
             // </Router>
