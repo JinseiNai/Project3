@@ -12,9 +12,6 @@ const HomePage= () => (
         <Link to="/signup">
             <SignUpButton />
         </Link>
-        <div>
-        <Footer />
-        </div>
     </div>
 )
 
