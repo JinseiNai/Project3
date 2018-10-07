@@ -7,7 +7,7 @@ class Header extends Component {
  render() {
    return (
      <div className="Header-Div">
-     < PersistentDrawer />
+     <PersistentDrawer />
        <header className="Header">
          <h1 className="Header-title" >GTFO!
          {/* Food Decid-a-nator!, Indecisi-Food, Food Roulette, Food Now!, Feed Me */}

@@ -9,7 +9,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import axios from "axios"
 import LoginForm from "./components/LoginForm/LoginForm";
-
+import Wheel from "./components/pages/Wheel"
 
 
 // const App = () => (
@@ -100,6 +100,7 @@ class App extends Component {
               <Route exact path="/" component={HomePage} />
               <Route path="/login" render={()=> <LoginForm _login = {this._login}/> } />
               <Route path="/signup" component={SignUpPage} />
+              <Route path="/wheel" component={Wheel} />
             </Switch>
           </div>
           <Footer />
