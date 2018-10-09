@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-//import AppBar from './AppBar';
-// import './Header.css';
+import MenuAppBar from './AppBar';
+import './Header.css';
 // import Footer from '../Footer/Footer';
-import PersistentDrawer from './PersistentDrawer';
+// import PersistentDrawer from './PersistentDrawer';
 class Header extends Component {
  render() {
    return (
      <div className="Header-Div">
-     <PersistentDrawer />
+     {/* < MenuAppBar /> */}
        <header className="Header">
-         <h1 className="Header-title" >GTFO!
+       < MenuAppBar />
+         <h1 className="Header-title" >
          {/* Food Decid-a-nator!, Indecisi-Food, Food Roulette, Food Now!, Feed Me */}
          </h1>
        </header>

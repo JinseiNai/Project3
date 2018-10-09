@@ -1,12 +1,22 @@
 import React from "react";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
+// import styled from 'react-emotion'
 
-//import { Link } from 'react-router-dom'
+// const SubmitButton = styled('button')({
+//   padding: 15,
+//   display: 'flex',
+//   flexDirection: 'center',
+// })
+// import { Link } from 'react-router-dom'
 //import Button from '@material-ui/core/Button';
 
 //<Button component={Link} to="/LoginForm">
   //Link
 //</Button>
+// const Login = styled('login') ({
+//   alignItems: 'center',
+//   justifyContent: 'space-aroundS'
+// })
 class LoginButton extends React.Component {
   handleClick = () => {
     console.log('this is:', this);
@@ -14,13 +24,14 @@ class LoginButton extends React.Component {
 
   render() {
     return (
-      <button onClick={this.handleClick}
+      <button class="buttonHolder" onClick={this.handleClick}
       className="btn btn-success mt-3">
         Login
       </button>
     );
   }
 }
+
 export default LoginButton;
 
 
