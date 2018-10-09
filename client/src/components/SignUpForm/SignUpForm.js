@@ -13,47 +13,63 @@ const styles = theme => ({
         textAlign: 'center',
     },
     container: {
-      display: 'flex',
-      flexWrap: 'wrap',
+        display: 'flex',
+        flexWrap: 'wrap',
     },
     textField: {
-      marginLeft: theme.spacing.unit,
-      marginRight: theme.spacing.unit
+        marginLeft: theme.spacing.unit,
+        marginRight: theme.spacing.unit
     },
     dense: {
-      marginTop: 16,
+        marginTop: 16,
     },
     menu: {
-      width: 200,
+        width: 200,
     },
 });
 
 
-  
+
 class SignUp extends Component {
     constructor() {
         super()
         this.state = {
             username: "",
             password: "",
+            confirmPassword: "",
             redirectTo: null
         }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange = name => event => {
         this.setState({
-          [name]: event.target.value,
+            [name]: event.target.value,
         });
-      };
+    };
 
-    handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('username: ' + this.state.username)
-        console.log('password: ' + this.state.password)
-        // Logic to do a post
-        this.setState({
-            redirectTo: '/'
-        })
+    handleSubmit(event) {
+        event.preventDefault()
+        console.log(`${this.state.username} + ${this.state.password}`)
+        // TODO - validate!
+        axios
+            .post('/auth/signup', {
+                username: this.state.username,
+                password: this.state.password
+            })
+            .then(response => {
+                console.log(response)
+                if (!response.data.errmsg) {
+                    console.log('youre good')
+                    
+                    this.setState({
+                        redirectTo: '/login'
+                    })
+                } else {
+                    console.log('duplicate')
+                }
+            })
     }
 
     render() {
@@ -64,15 +80,15 @@ class SignUp extends Component {
 
         return (
             <div>
-                <Grid container spacing={24} className={ classes.root }>
-                    <Grid item xs={12} className={ classes.root } style={{ padding: 0 }}>
-                    <h4 style={{ marginBottom: 0 }}>Sign Up</h4>
+                <Grid container spacing={24} className={classes.root}>
+                    <Grid item xs={12} className={classes.root} style={{ padding: 0 }}>
+                        <h4 style={{ marginBottom: 0 }}>Sign Up</h4>
                     </Grid>
-                    <form className={ classes.container } noValidate autoComplete="off" onSubmit={ this.handleSubmit }>
+                    <form className={classes.container} noValidate autoComplete="off" onSubmit={this.handleSubmit}>
                         <TextField
                             id="outlined-username"
                             label="Username"
-                            className={ classes.textField }
+                            className={classes.textField}
                             value={this.state.name}
                             onChange={this.handleChange('username')}
                             margin="normal"
@@ -81,7 +97,7 @@ class SignUp extends Component {
                         <TextField
                             id="outlined-password-input"
                             label="Password"
-                            className={ classes.textField }
+                            className={classes.textField}
                             type="password"
                             autoComplete="current-password"
                             onChange={this.handleChange('password')}
