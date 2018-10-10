@@ -10,6 +10,7 @@ import Footer from "./components/Footer/Footer";
 import axios from "axios"
 import LoginForm from "./components/LoginForm/LoginForm";
 import Wheel from "./components/pages/Wheel"
+import NavPage from "./components/pages/Nav";
 
 
 // const App = () => (
@@ -94,13 +95,14 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Header />
+          {/* <Header /> */}
           <div style={{ minHeight: 'calc(100vh - 301px)' }}>
             <Switch>
-              <Route exact path="/" component={HomePage} />
+              <Route exact path="/" component={ HomePage } />
               <Route path="/login" render={()=> <LoginForm _login = {this._login}/> } />
-              <Route path="/signup" component={SignUpPage} />
-              <Route path="/wheel" component={Wheel} />
+              <Route path="/signup" component={ SignUpPage } />
+              <Route path="/nav" component={ NavPage } />
+              <Route path="/wheel" component={ Wheel } />
             </Switch>
           </div>
           <Footer />
