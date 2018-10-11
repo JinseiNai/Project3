@@ -56,9 +56,9 @@ class Login extends Component {
         console.log('handleSubmit')
         console.log(`${this.state.username} + ${this.state.password}`)
         this.props._login(this.state.username, this.state.password)
-        // this.setState({
-        //     redirectTo: '/nav'
-        // })
+        this.setState({
+            redirectTo: '/nav'
+        })
     }
 
     render() {
