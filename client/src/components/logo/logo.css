@@ -1,0 +1,9 @@
+.Logo-Div {
+    align-content: center;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    background-image: url("wood.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
