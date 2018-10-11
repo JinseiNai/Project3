@@ -1,5 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+
+const styles = theme => ({
+  btnSize: {
+    width: 'auto'
+  }
+})
 
 //import { Link } from 'react-router-dom'
 //import Button from '@material-ui/core/Button';
@@ -13,14 +21,20 @@ class FavsButton extends React.Component {
   }
 
   render() {
+    const { classes } = this.props;
     return (
       <button onClick={this.handleClick}
       className="btn btn-info mt-3">
-        Favs
+        Favorites
       </button>
     );
   }
 }
-export default FavsButton;
+
+FavsButton.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(FavsButton);
 
 
