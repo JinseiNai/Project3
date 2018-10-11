@@ -1,4 +1,5 @@
 import React from "react";
+
 // import ReactDOM from "react-dom";
 // import styled from 'react-emotion'
 
@@ -24,10 +25,12 @@ class LoginButton extends React.Component {
 
   render() {
     return (
+    
       <button class="buttonHolder" onClick={this.handleClick}
-      className="btn btn-success mt-3">
+      className="btn btn-success mt-3" >
         Login
       </button>
+    
     );
   }
 }

@@ -14,7 +14,7 @@ class SignupButton extends React.Component {
   render() {
     return (
       <button onClick={this.handleClick}
-      className="btn btn-success mt-3">
+      className="btn btn-success mt-3" >
         Signup
       </button>
     );

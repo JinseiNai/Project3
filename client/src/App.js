@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
@@ -10,23 +11,7 @@ import Footer from "./components/Footer/Footer";
 import axios from "axios"
 import LoginForm from "./components/LoginForm/LoginForm";
 import Wheel from "./components/pages/Wheel"
-
-
-// const App = () => (
-//   <Router>
-//     <div>
-//       <Header />
-//       <div style={{ minHeight: 'calc(100vh - 301px)' }}>
-//         <Switch>
-//           <Route exact path="/" component={HomePage} />
-//           <Route path="/login" component={LoginPage} />
-//           <Route path="/signup" component={SignUpPage} />
-//         </Switch>
-//       </div>
-//       <Footer />
-//     </div>
-//   </Router>
-// );
+import NavPage from "./components/pages/Nav";
 
 class App extends Component {
   // state and passport work
@@ -39,6 +24,7 @@ class App extends Component {
     this._logout = this._logout.bind(this)
     this._login = this._login.bind(this)
   }
+
   componentDidMount() {
     axios.get('/auth/user').then(response => {
       console.log(response.data)
@@ -85,6 +71,8 @@ class App extends Component {
             loggedIn: true,
             user: response.data.user
           })
+          console.log("logged in!")
+          console.log(this.state.user)
         }
       })
   }
@@ -94,12 +82,13 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Header />
+          {/* <Header /> */}
           <div style={{ minHeight: 'calc(100vh - 301px)' }}>
             <Switch>
               <Route exact path="/" component={HomePage} />
-              <Route path="/login" render={()=> <LoginForm _login = {this._login}/> } />
+              <Route path="/login" render={() => <LoginForm _login={this._login} />} />
               <Route path="/signup" component={SignUpPage} />
+              <Route path="/nav" render={() => <NavPage user={this.state.user} />} />
               <Route path="/wheel" component={Wheel} />
             </Switch>
           </div>

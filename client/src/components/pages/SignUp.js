@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { Component } from 'react'
 import SignUpForm from '../SignUpForm/SignUpForm';
-import axios from "axios";
-import { Redirect } from "react-router-dom";
 
-
-const SignUpPage = () => (
-
-  <SignUpForm />
-)
+class SignUpPage extends Component {
+  render() {
+    return (
+      <SignUpForm />
+    )
+  }
+}
 
 
 export default SignUpPage;
