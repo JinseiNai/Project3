@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@material-ui/icons": "^3.0.1",
-    "axios": "^0.16.2",
+    "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.2",
     "connect-mongo": "^2.0.1",

@@ -13,23 +13,6 @@ import LoginForm from "./components/LoginForm/LoginForm";
 import Wheel from "./components/pages/Wheel"
 import NavPage from "./components/pages/Nav";
 
-
-// const App = () => (
-//   <Router>
-//     <div>
-//       <Header />
-//       <div style={{ minHeight: 'calc(100vh - 301px)' }}>
-//         <Switch>
-//           <Route exact path="/" component={HomePage} />
-//           <Route path="/login" component={LoginPage} />
-//           <Route path="/signup" component={SignUpPage} />
-//         </Switch>
-//       </div>
-//       <Footer />
-//     </div>
-//   </Router>
-// );
-
 class App extends Component {
   // state and passport work
   constructor() {
@@ -41,6 +24,7 @@ class App extends Component {
     this._logout = this._logout.bind(this)
     this._login = this._login.bind(this)
   }
+
   componentDidMount() {
     axios.get('/auth/user').then(response => {
       console.log(response.data)
