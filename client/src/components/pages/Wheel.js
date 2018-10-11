@@ -24,26 +24,12 @@ class Wheel extends Component {
     // yelp api work
     yelpHandler() {
         // replace san diego with city user ask for
-        console.log('axios not working');
-        axios.get(
-            {
-                url: "https://api.yelp.com/v3/businesses/search?location=sandiego,ca&categories=restaurants&sort_by=rating&radius=16094&limit=10",
-                
-                headers: {
-                    "Authorization": "Bearer VY_Xbz8ZMKV_ehIMtzo3_HN4TEEnRKNtfLhPLdbEYTl8bYvyvzKf_7qUXdiA8yYR1EVEVnzIqEfEzjwEZq9QjCiWGKJT2Wet3nHDaEHQEQhB-J2K0tDFpbGrXtuyW3Yx"
-                }
-            }
-        )
-        .then(response => {
-            console.log(response.data)
+        console.log("grabbing yelp info")
+        fetch("/api/search",{
+            method:"GET"
         })
-        .catch(error => {
-            console.log(error.response)
-        })
-            
+        .then(result => console.log(result))
         
-
-    
     }
 
 
