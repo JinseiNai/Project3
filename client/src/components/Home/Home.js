@@ -7,7 +7,7 @@ import SignupButton from "./components/SignupButton/SignupButton";
 import RandomizeButton from "./components/RandomizeButton";
 
 
-const App = () => (
+const Home = () => (
   <div>
   <Header />
   <Login />
@@ -21,4 +21,4 @@ const App = () => (
   </div>
 );
 
-export default App;
+export default Home;

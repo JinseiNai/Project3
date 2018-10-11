@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
@@ -70,6 +71,8 @@ class App extends Component {
             loggedIn: true,
             user: response.data.user
           })
+          console.log("logged in!")
+          console.log(this.state.user)
         }
       })
   }
@@ -82,11 +85,11 @@ class App extends Component {
           {/* <Header /> */}
           <div style={{ minHeight: 'calc(100vh - 301px)' }}>
             <Switch>
-              <Route exact path="/" component={ HomePage } />
-              <Route path="/login" render={()=> <LoginForm _login = {this._login}/> } />
-              <Route path="/signup" component={ SignUpPage } />
-              <Route path="/nav" component={ NavPage } />
-              <Route path="/wheel" component={ Wheel } />
+              <Route exact path="/" component={HomePage} />
+              <Route path="/login" render={() => <LoginForm _login={this._login} />} />
+              <Route path="/signup" component={SignUpPage} />
+              <Route path="/nav" render={() => <NavPage user={this.state.user} />} />
+              <Route path="/wheel" component={Wheel} />
             </Switch>
           </div>
           <Footer />
