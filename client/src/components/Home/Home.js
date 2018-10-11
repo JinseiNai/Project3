@@ -15,7 +15,7 @@ import Logo from "./components/Logo/Logo";
 //   }
 // }
 
-const App = () => (
+const Home = () => (
   <div>
   <Header />
   <Logo />
@@ -30,4 +30,4 @@ const App = () => (
   </div>
 );
 
-export default App;
+export default Home;

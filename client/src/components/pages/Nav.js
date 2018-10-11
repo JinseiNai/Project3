@@ -31,6 +31,20 @@ const BtnList = styled('ul')`
 // }
 
 class NavPage extends Component {
+    constructor() {
+        super()
+        this.state = {
+          firstName:""
+        }
+        
+      }
+    componentDidUpdate (prevProps) {
+        if(prevProps.user !== this.props.user) {
+            this.setState({
+                firstName: this.props.user.local.username
+            })
+        }
+    }
     render() {
         return (
             <div>
@@ -40,6 +54,7 @@ class NavPage extends Component {
                     <NavButton label="Activities" />
                     <NavButton label="Create A List" />
                     <NavButton label="Randomizer" />
+                    <p>{this.state.firstName}</p>
                 </BtnList>
             </div>
         )
