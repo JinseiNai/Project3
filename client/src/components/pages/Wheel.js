@@ -25,11 +25,26 @@ class Wheel extends Component {
     yelpHandler() {
         // replace san diego with city user ask for
         console.log("grabbing yelp info")
-        fetch("/api/search",{
-            method:"GET"
-        })
-        .then(result => console.log(result))
         
+        let url = "/api/search/";
+        axios.get(url, {
+            params: {
+                categories: "restaurants",
+                location: "San Diego, CA",
+                limit: 10,
+                sort_by: "rating",
+                radius: 16094,
+                open_now: true
+            }
+        }).then(function(response){
+            console.log(response.data.businesses)
+            
+            this.setState({
+                yelpResults: 
+            })
+        })
+            
+
     }
 
 
@@ -37,9 +52,9 @@ class Wheel extends Component {
 
     render() {
         return (
-        <div>
-            <button type="Submit" onClick={this.yelpHandler} >Submit</button>
-        </div>
+            <div>
+                <button type="Submit" onClick={this.yelpHandler} >Submit</button>
+            </div>
         )
     }
 }
