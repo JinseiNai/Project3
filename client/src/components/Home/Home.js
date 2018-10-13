@@ -8,6 +8,7 @@ import SignupButton from "./components/SignupButton/SignupButton";
 import RandomizeButton from "./components/RandomizeButton";
 import Logo from "./components/Logo/Logo";
 
+
 // let imgUrl = '1.jpg'
 // let styles = {
 //   root: {

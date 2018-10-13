@@ -18,7 +18,6 @@ class Header extends Component {
        Oh, where to eat!
        </h2>
        </p>
- );
      </div>
    );
  };
