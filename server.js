@@ -42,11 +42,13 @@ app.use('/auth', require('./server/auth'))
 app.get('/api/search', function (req, res) {
 	//   var term = req.query.term;
 	//   var location = req.query.location;
-	var categories = "restaurants";
-	var location = "San Diego, CA";
-	var limit = 10;
-	var sort_by = "rating";
-	var radius = 16094
+	// console.log(req)
+	var categories = req.query.categories;
+	var location = req.query.location;
+	var limit = req.query.limit;
+	var sort_by = req.query.sort_by;
+	var radius = req.query.radius;
+	var open_now = req.query.open_now
 	console.log("running yelp search")
 
 	if (!categories || !location) {
@@ -55,9 +57,10 @@ app.get('/api/search', function (req, res) {
 		});
 	}
 
-	yelp.search({ categories, location, limit, sort_by, radius })
+	yelp.search({ categories, location, limit, sort_by, radius, open_now })
 		.then(data => {
-			return res.json(data);
+			// return res.json(data);
+			return res.json(data) 
 		})
 		.catch((e) => {
 			console.error("Error", e);
