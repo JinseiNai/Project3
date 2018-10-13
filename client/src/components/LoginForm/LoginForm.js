@@ -71,13 +71,16 @@ class Login extends Component {
         return (
             // <Router>
             <div>
+                <style>{'body { background-color: skyblue; }'}</style>
                 <div>
-                    <Grid container spacing={24} className={classes.root}>
+                    <Grid container spacing={27} className={classes.root}>
                         <Grid item xs={12} className={classes.root} style={{ padding: 0 }}>
                             <h4 style={{ marginBottom: 0 }}>Login</h4>
                             {/* <img src={tile.img} alt={tile.title} /> */}
                         </Grid>
                         <form className={classes.container} noValidate autoComplete="off" onSubmit={this.handleSubmit}>
+
+                        <div>
                             <TextField
                                 id="outlined-username"
                                 label="Username"
@@ -87,6 +90,11 @@ class Login extends Component {
                                 margin="normal"
                                 variant="outlined"
                             />
+                            </div>
+                            </form>
+                    </Grid>
+                             
+                            <div align="center">
                             <TextField
                                 id="outlined-password-input"
                                 label="Password"
@@ -97,9 +105,13 @@ class Login extends Component {
                                 margin="normal"
                                 variant="outlined"
                             />
-                            <button>Login</button>
-                        </form>
-                    </Grid>
+                            </div>
+                           
+                            <div align="center" >
+                            <button className="btn btn-outline-info mt-1 ml-1">Login</button>
+                            </div>
+                            
+                        
                 </div>
             </div>
             // </Router>

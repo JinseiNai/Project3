@@ -3,20 +3,21 @@ import { Link } from "react-router-dom";
 import SignUpButton from '../SignupButton/index'
 import LoginButton from '../LoginButton/index'
 
-class HomePage extends Component {
 
-    render() {
-        return (
-            <div>
-                <Link to="/login">
-                    <LoginButton />
-                </Link>
-                <Link to="/signup">
-                    <SignUpButton />
-                </Link>
-            </div>
-        )
-    }
-}
+const HomePage= () => (
+    <div align= "center"  >
+   <style>{'body { background-color: skyblue; }'}</style>
+
+   
+        <Link to="/login">
+            <LoginButton />
+        </Link>
+        <span> </span>
+        <Link to="/signup">
+            <SignUpButton />
+        </Link>
+    
+    </div>
+)
 
 export default HomePage
