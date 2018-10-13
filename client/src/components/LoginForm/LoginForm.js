@@ -3,8 +3,9 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
-import { Redirect } from 'react-router-dom'
-
+import { Redirect } from 'react-router-dom';
+// import { url } from "inspector";
+// import image from 1.jpg;
 
 const styles = theme => ({
     root: {
@@ -74,6 +75,7 @@ class Login extends Component {
                     <Grid container spacing={24} className={classes.root}>
                         <Grid item xs={12} className={classes.root} style={{ padding: 0 }}>
                             <h4 style={{ marginBottom: 0 }}>Login</h4>
+                            {/* <img src={tile.img} alt={tile.title} /> */}
                         </Grid>
                         <form className={classes.container} noValidate autoComplete="off" onSubmit={this.handleSubmit}>
                             <TextField
