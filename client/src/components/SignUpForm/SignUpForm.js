@@ -80,11 +80,13 @@ class SignUp extends Component {
 
         return (
             <div>
-                <Grid container spacing={24} className={classes.root}>
+                <style>{'body { background-color: skyblue; }'}</style>
+                <Grid container spacing={27} className={classes.root}>
                     <Grid item xs={12} className={classes.root} style={{ padding: 0 }}>
                         <h4 style={{ marginBottom: 0 }}>Sign Up</h4>
                     </Grid>
                     <form className={classes.container} noValidate autoComplete="off" onSubmit={this.handleSubmit}>
+                    <div>
                         <TextField
                             id="outlined-username"
                             label="Username"
@@ -94,6 +96,10 @@ class SignUp extends Component {
                             margin="normal"
                             variant="outlined"
                         />
+                        </div>
+                         </form>
+                </Grid>
+                <div align="center">
                         <TextField
                             id="outlined-password-input"
                             label="Password"
@@ -104,9 +110,10 @@ class SignUp extends Component {
                             margin="normal"
                             variant="outlined"
                         />
-                        <button>Sign Up</button>
-                    </form>
-                </Grid>
+                        </div>
+                        <div align="center">
+                        <button className="btn btn-outline-info mt-1 ml-1" >Sign Up</button>
+                        </div>
             </div>
         )
     }

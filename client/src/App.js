@@ -14,6 +14,7 @@ import Wheel from "./components/pages/Wheel"
 import NavPage from "./components/pages/Nav";
 import Filter from "./components/pages/Filter";
 
+
 class App extends Component {
   // state and passport work
   constructor() {
@@ -90,8 +91,7 @@ class App extends Component {
               <Route path="/login" render={() => <LoginForm _login={this._login} />} />
               <Route path="/signup" component={SignUpPage} />
               <Route path="/nav" render={() => <NavPage user={this.state.user} />} />
-              <Route path="/wheel" component={Wheel} />
-              <Route path="/filter" component={Filter} />
+              <Route path="/wheel" render={() => <Wheel user={this.state.user} />} />
             </Switch>
           </div>
           <Footer />

@@ -1,11 +1,14 @@
+import { Link } from "react-router-dom";
 import React, { Component } from 'react'
+import styled from 'react-emotion'
+
 import Header from '../Header/Header';
-// import FavsButton from '../FavsButton/FavsButton';
-// import CreateListButton from '../CreateListButton/CreateListButton';
-// import ActivitiesButton from '../ActivitiesButton/ActivitiesButton';
-// import RandomizerButton from '../RandomizerButton/RandomizerButton';
-import styled, { css } from 'react-emotion'
 import NavButton from '../NavButtons/index';
+import RestaurantsButton from '../RestaurantsButton'
+import ActivitiesButton from '../ActivitiesButton'
+import FavsButton from '../FavsButton'
+import CreateListButton from '../CreateListButton'
+import RandomizerButton from '../RandomizerButton'
 
 const BtnList = styled('ul')`
     list-style: none;
@@ -47,15 +50,20 @@ class NavPage extends Component {
     }
     render() {
         return (
-            <div>
+            <div align="center">
+            <style>{'body { background-color: skyblue; }'}</style>
                 <Header />
                 <BtnList>
-                    <NavButton label="Favorites" />
-                    <NavButton label="Activities" />
-                    <NavButton label="Create A List" />
-                    <NavButton label="Randomizer" />
+                    <li className="listitem"><NavButton label="Favorites" /></li>
+                    <br></br>
+                    <li className="listitem"><NavButton label="Activities" /> </li>
+                    <br></br>
+                    <li className="listitem"><NavButton label="Create List" /> </li>
+                    <br></br>
+                    <li className="listitem"><NavButton label="Randomizer" /> </li>
                     <p>{this.state.firstName}</p>
                 </BtnList>
+                
             </div>
         )
     }
