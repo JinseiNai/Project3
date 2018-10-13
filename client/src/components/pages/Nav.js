@@ -50,13 +50,17 @@ class NavPage extends Component {
     }
     render() {
         return (
-            <div>
+            <div align="center">
+            <style>{'body { background-color: skyblue; }'}</style>
                 <Header />
                 <BtnList>
-                    <NavButton label="Favorites" />
-                    <NavButton label="Activities" />
-                    <NavButton label="Create A List" />
-                    <NavButton label="Randomizer" />
+                    <li className="listitem"><NavButton label="Favorites" /></li>
+                    <br></br>
+                    <li className="listitem"><NavButton label="Activities" /> </li>
+                    <br></br>
+                    <li className="listitem"><NavButton label="Create List" /> </li>
+                    <br></br>
+                    <li className="listitem"><NavButton label="Randomizer" /> </li>
                     <p>{this.state.firstName}</p>
                 </BtnList>
                 

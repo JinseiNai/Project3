@@ -13,6 +13,7 @@ import LoginForm from "./components/LoginForm/LoginForm";
 import Wheel from "./components/pages/Wheel"
 import NavPage from "./components/pages/Nav";
 
+
 class App extends Component {
   // state and passport work
   constructor() {
