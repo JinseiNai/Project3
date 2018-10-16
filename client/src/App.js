@@ -92,6 +92,7 @@ class App extends Component {
               <Route path="/signup" component={SignUpPage} />
               <Route path="/nav" render={() => <NavPage user={this.state.user} />} />
               <Route path="/wheel" render={() => <Wheel user={this.state.user} />} />
+              <Route path="/Filter" render={() => <Filter user={this.state.user} />} />              
             </Switch>
           </div>
           <Footer />

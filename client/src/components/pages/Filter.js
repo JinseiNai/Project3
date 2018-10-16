@@ -3,20 +3,19 @@ import React, { Component } from 'react'
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import NestedList from '../NestedList/NestedList';
+import FilterForm from './FilterForm';
+// import NestedList from '../NestedList/NestedList';
 // import NavButton from '../NavButtons/index';
 
 class Filter extends Component {
-    constructor() {
-      super()
-      this.state = {
 
-      }  
-    }
+
     render() {
         return (
             <div>
                 <Header />
+
+                   <FilterForm />
                     
                 <Footer />
             </div>
