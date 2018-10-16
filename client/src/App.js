@@ -12,6 +12,7 @@ import axios from "axios"
 import LoginForm from "./components/LoginForm/LoginForm";
 import Wheel from "./components/pages/Wheel"
 import NavPage from "./components/pages/Nav";
+import Filter from "./components/pages/Filter";
 
 
 class App extends Component {
@@ -91,6 +92,7 @@ class App extends Component {
               <Route path="/signup" component={SignUpPage} />
               <Route path="/nav" render={() => <NavPage user={this.state.user} />} />
               <Route path="/wheel" render={() => <Wheel user={this.state.user} />} />
+              <Route path="/filter" render={() => <Filter user={this.state.user} />} />              
             </Switch>
           </div>
           <Footer />
