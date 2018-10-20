@@ -12,7 +12,9 @@ import axios from "axios"
 import LoginForm from "./components/LoginForm/LoginForm";
 import Wheel from "./components/pages/Wheel"
 import NavPage from "./components/pages/Nav";
-
+import "./App.css";
+import logo from "./gtfo.png"
+import wheel from "./colorwheel.png"
 
 class App extends Component {
   // state and passport work
@@ -78,13 +80,17 @@ class App extends Component {
       })
   }
 
-  // add components/pages here
+    // add components/pages here
   render() {
     return (
       <Router>
-        <div>
-          {/* <Header /> */}
-          <div style={{ minHeight: 'calc(100vh - 301px)' }}>
+        <div class= "backgroundImage">
+        <div align="center" style={{paddingBottom:110}}>
+         <img src={logo} width="200" height="200" ></img> <img src={wheel} width="200" height="200" ></img>
+        </div> 
+
+         {/* <Header /> */}
+          <div style={{ minHeight: 'calc(100vh - 50px)' }}>
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route path="/login" render={() => <LoginForm _login={this._login} />} />

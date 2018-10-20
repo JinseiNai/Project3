@@ -8,7 +8,6 @@ const HomePage= () => (
     <div align= "center"  >
    <style>{'body { background-color: skyblue; }'}</style>
 
-   
         <Link to="/login">
             <LoginButton />
         </Link>
@@ -20,4 +19,4 @@ const HomePage= () => (
     </div>
 )
 
-export default HomePage
+export default HomePage;

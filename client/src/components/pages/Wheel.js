@@ -1,6 +1,7 @@
 // page where it shows selection of yelp api results and randomly picks one
 import React, { Component } from "react";
-import axios from "axios"
+import axios from "axios";
+// import logo from "./colorwheel.png"
 
 class Wheel extends Component {
     // functions here
@@ -65,8 +66,13 @@ class Wheel extends Component {
   
     render() {
         return (
-            <div>
-                <button type="button" onClick={this.consolelogstate} >Submit</button>
+            <div align="center">
+            {/* <img src={logo} width="100" height="100" ></img> */}
+            <div  style={{paddingTop:110}}>
+                <button type="button" onClick={this.consolelogstate}  
+                className="btn btn-primary mt-3 ml-4 btn-lg">
+                Submit</button>
+            </div>
             </div>
         )
     }
