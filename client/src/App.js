@@ -12,9 +12,14 @@ import axios from "axios"
 import LoginForm from "./components/LoginForm/LoginForm";
 import Wheel from "./components/pages/Wheel"
 import NavPage from "./components/pages/Nav";
+<<<<<<< HEAD
 import "./App.css";
 import logo from "./gtfo.png"
 import wheel from "./colorwheel.png"
+=======
+import Filter from "./components/pages/Filter";
+
+>>>>>>> d454e9e61dc521710cf05f1e1a76fc0472f1662c
 
 class App extends Component {
   // state and passport work
@@ -97,6 +102,7 @@ class App extends Component {
               <Route path="/signup" component={SignUpPage} />
               <Route path="/nav" render={() => <NavPage user={this.state.user} />} />
               <Route path="/wheel" render={() => <Wheel user={this.state.user} />} />
+              <Route path="/filter" render={() => <Filter user={this.state.user} />} />              
             </Switch>
           </div>
           <Footer />

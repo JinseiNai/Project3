@@ -1,38 +1,13 @@
 import { Link } from "react-router-dom";
 import React, { Component } from 'react'
 import styled from 'react-emotion'
-
 import Header from '../Header/Header';
 import NavButton from '../NavButtons/index';
-import RestaurantsButton from '../RestaurantsButton'
-import ActivitiesButton from '../ActivitiesButton'
-import FavsButton from '../FavsButton'
-import CreateListButton from '../CreateListButton'
-import RandomizerButton from '../RandomizerButton'
+import { hideWheel } from '../HideWheel/HideWheel'
 
 const BtnList = styled('ul')`
     list-style: none;
 `
-// const BtnSize = {
-//     width: '100px'
-// }
-
-// class NavPage extends Component {
-//     render() {
-//         return (
-//             <div>
-//                 <Header />
-//                 <BtnList>
-//                     <li><FavsButton /></li>
-//                     <li><CreateListButton /></li>
-//                     <li><ActivitiesButton /></li>
-//                     <li><RandomizerButton /></li>
-//                 </BtnList>
-//             </div>
-//         )
-//     }
-// }
-
 class NavPage extends Component {
     constructor() {
         super()
@@ -41,6 +16,7 @@ class NavPage extends Component {
         }
         
       }
+
     componentDidUpdate (prevProps) {
         if(prevProps.user !== this.props.user) {
             this.setState({
@@ -48,6 +24,11 @@ class NavPage extends Component {
             })
         }
     }
+
+    componentDidMount() {
+        hideWheel()
+    }
+    
     render() {
         return (
             <div align="center">

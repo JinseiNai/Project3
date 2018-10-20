@@ -12,6 +12,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 // import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import SimpleMenu from './SimpleMenu'
 
 const styles = {
   root: {
@@ -40,6 +41,12 @@ class MenuAppBar extends React.Component {
   };
 
   handleMenu = event => {
+    console.log(event.currentTarget)
+    this.setState({ anchorEl: event.currentTarget });
+  };
+
+  handleProfileClick = event => {
+    console.log(event.currentTarget)
     this.setState({ anchorEl: event.currentTarget });
   };
 
@@ -64,22 +71,25 @@ class MenuAppBar extends React.Component {
         </FormGroup> */}
         <AppBar position="static" color='transparent' classes={{ root: classes.root }}>
           <Toolbar>
-            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+            <SimpleMenu className={classes.menuButton} onClick={this.handleMenu} color="inherit" aria-label="Menu">
+              </SimpleMenu>
+
+            {/* <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
               <MenuIcon />
-            </IconButton>
+            </IconButton>               */}
             <Typography variant="title" color="inherit" className={classes.grow}>
               <h1>GTFO!</h1>
             </Typography>
             {auth && (
               <div>
-                <IconButton
+                <AccountCircle
                   aria-owns={open ? 'menu-appbar' : null}
                   aria-haspopup="true"
-                  onClick={this.handleMenu}
+                  onClick={this.handleProfileClick}
                   color="inherit"
                 >
-                  <AccountCircle />
-                </IconButton>
+                  {/* <AccountCircle /> */}
+                </AccountCircle>
                 <Menu
                   id="menu-appbar"
                   anchorEl={anchorEl}
@@ -94,8 +104,9 @@ class MenuAppBar extends React.Component {
                   open={open}
                   onClose={this.handleClose}
                 >
+                  <MenuItem onClick={this.handleClose}>Log Out</MenuItem>
                   <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                  <MenuItem onClick={this.handleClose}>My account</MenuItem>
+
                 </Menu>
               </div>
             )}
