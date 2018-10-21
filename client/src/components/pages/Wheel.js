@@ -103,12 +103,13 @@ class Wheel extends Component {
     render() {
         return (
             <div align="center">
-            {/* <img src={logo} width="100" height="100" ></img> */}
-            <div  style={{paddingTop:110}}>
-                <button type="button" onClick={this.consolelogstate}  
-                className="btn btn-primary mt-3 ml-4 btn-lg">
-                Submit</button>
-            </div>
+                {/* <img src={logo} width="100" height="100" ></img> */}
+                <canvas id='canvas' width='1080' height='500'></canvas>
+                <div  style={{paddingTop:110}}>
+                    <button type="button" onClick={this.consolelogstate}  
+                    className="btn btn-primary mt-3 ml-4 btn-lg">
+                    Submit</button>
+                </div>
             </div>
         )
     }
