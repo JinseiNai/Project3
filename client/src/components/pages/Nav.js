@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import styled from 'react-emotion'
 import Header from '../Header/Header';
 import NavButton from '../NavButtons/index';
-import { hideWheel } from '../HideWheel/HideWheel'
 
 const BtnList = styled('ul')`
     list-style: none;
@@ -23,10 +22,6 @@ class NavPage extends Component {
                 firstName: this.props.user.local.username
             })
         }
-    }
-
-    componentDidMount() {
-        hideWheel()
     }
     
     render() {

@@ -4,8 +4,6 @@ import Footer from '../Footer/Footer';
 import FavoritesCard from './FavoritesCard';
 
 class Favorites extends Component {
-
-
     render() {
         return (
             <div>

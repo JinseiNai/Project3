@@ -3,12 +3,8 @@ import { Link } from "react-router-dom";
 import SignUpButton from '../SignupButton/index'
 import LoginButton from '../LoginButton/index'
 import Header from '../Header/Header';
-import { hideWheel } from '../HideWheel/HideWheel'
 
 class HomePage extends Component {
-    componentDidMount() {
-        hideWheel()
-    }
     render() {
         return(
         <div align= "center"  >
