@@ -1,6 +1,7 @@
 // page where it shows selection of yelp api results and randomly picks one
 import React, { Component } from "react";
 import axios from "axios"
+import Winwheel from 'winwheel'
 
 class Wheel extends Component {
     // functions here
@@ -8,14 +9,27 @@ class Wheel extends Component {
     constructor() {
         super()
         this.state = {
-            randomPlaceIndex: "",
+            randomPlaceIndex: 0,
             city: "",
-            yelpResults: ""
+            yelpResults: [],
+            myWheel : new Winwheel({
+                'numSegments' : 0
+            })
         }
         this.yelpHandler = this.yelpHandler.bind(this)
         this.consolelogstate = this.consolelogstate.bind(this)
 
     }
+
+    // Update myWheel according to yelpResults
+    updateWheel() {
+        this.setState({
+            myWheel : new Winwheel({
+                'numSegments' : (this.setState.yelpResults.length)
+            })
+        })
+    }
+
     // random number generator between 1-9
     // when plugging into place picker function yelpResults[parseInt(randomPlaceIndex)-1]
     handleRandomIndex() {
@@ -23,10 +37,22 @@ class Wheel extends Component {
         this.setState({ randomPlaceIndex: randomIndex });
         console.log(this.state.randomPlaceIndex);
     }
+
     componentDidMount() {
         this.handleRandomIndex();
         this.yelpHandler();
     }
+
+    // componentDidUpdate(prevProps, prevState) {
+    //     console.log(prevState)
+    //     if (this.state.yelpResults.length !== prevState.yelpResults.length) {
+    //         this.setState({
+    //             myWheel : new Winwheel({
+    //                 'numSegments' : (this.setState.yelpResults.length)
+    //             })
+    //         })
+    //     }
+    // }
 
     // yelp api work
     yelpHandler() {
@@ -44,11 +70,23 @@ class Wheel extends Component {
                 open_now: true
             }
         }).then(response => {
+            let numSeg = response.data.businesses.length;
+            let names = response.data.businesses.map(business => ({
+                fillStyle: 'red',
+                text: business.name
+            }))
             this.setState({
-                yelpResults: response.data.businesses
+                yelpResults: response.data.businesses,
+                myWheel : new Winwheel({
+                    'numSegments' : numSeg,
+                    'segments' : names,
+                    'textFontSize' : 14,
+                    'textDirection' : 'reversed'
+                })
             },
             () => {
                 console.log(this.state.yelpResults)
+                console.log(this.state)
             })
             
             if (response.data.businesses) {
@@ -59,8 +97,7 @@ class Wheel extends Component {
 
     consolelogstate (){
         console.log(this.state.yelpResults)
-        console.log(this.state.randomPlaceIndex)
-        console.log(this.state.yelpResults[this.state.randomPlaceIndex].alias)
+        // this.updateWheel()
     }
   
     render() {
