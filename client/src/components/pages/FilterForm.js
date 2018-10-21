@@ -11,6 +11,8 @@ import FilledInput from '@material-ui/core/FilledInput';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 
 
 // imports for clickboxes
@@ -25,7 +27,11 @@ import Checkbox from '@material-ui/core/Checkbox';
 const styles = theme => ({
   container: {
     display: 'flex',
-    flexWrap: 'wrap',
+    flexWrap: 'wrap',    
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '5%',
+    paddingTop: '2%',
   },
   textField: {
     marginLeft: theme.spacing.unit,
@@ -42,21 +48,33 @@ const styles = theme => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
+    flexGrow: 1,
   },
   formControl: {
     margin: theme.spacing.unit,
     minWidth: 120,
+    maxWidth:150,
   },
   selectEmpty: {
-    marginTop: theme.spacing.unit * 2,
+    marginTop: theme.spacing.unit * 1,
   },
 
   // style for clickbox
   root: {
     display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   formControl: {
-    margin: theme.spacing.unit * 3,
+    margin: theme.spacing.unit * 1,
+  },
+
+// styles for button
+  button: {
+    margin: theme.spacing.unit,
+  },
+  input: {
+    display: 'none',
   },
 });
 
@@ -78,7 +96,7 @@ class FilterForm extends Component {
     render() {
       const { classes } = this.props;
 
-      const { gilad, jason, antoine } = this.state;
+      const { price1, price2, price3, price4 } = this.state;
       const error = Object.values(this.state).filter(v => v).length !== 2;
     
         return (
@@ -90,7 +108,7 @@ class FilterForm extends Component {
           style={{ margin: 8 }}
           placeholder="Location"
           helperText="Input location!"
-          fullWidth
+          // fullWidth
           margin="normal"
           variant="outlined"
           InputLabelProps={{
@@ -103,21 +121,21 @@ class FilterForm extends Component {
           style={{ margin: 8 }}
           placeholder="Cuisine"
           helperText="What you want to eat!"
-          fullWidth
-          margin="normal"
+          // fullWidth
+          margin="small"
           variant="outlined"
           InputLabelProps={{
             shrink: true,
           }}
         />
 
-         <FormControl variant="outlined" className={classes.formControl}>
+          {/* Selects */}
+         {/* <FormControl variant="outlined" className={classes.formControl}>
           <InputLabel
             ref={ref => {
               this.labelRef = ReactDOM.findDOMNode(ref);
             }}
-            htmlFor="outlined-price-native-simple"
-          >
+            htmlFor="outlined-price-native-simple">
           Price
           </InputLabel>
           <Select
@@ -137,38 +155,55 @@ class FilterForm extends Component {
             <option value={20}>$$</option>
             <option value={30}>$$$</option>
           </Select>
-        </FormControl>
+        </FormControl> */}
 
-<FormControl component="fieldset" className={classes.formControl}>
-          <FormLabel component="legend">Assign responsibility</FormLabel>
-          <FormGroup>
+        {/* checkbox group */}
+        
+        <FormControl component="fieldset" className={classes.formControl} value="center">
+          <FormLabel component="legend">Price</FormLabel>
+          <FormGroup row>
             <FormControlLabel
               control={
-                <Checkbox checked={gilad} onChange={this.handleChange('gilad')} value="gilad" />
+                <Checkbox checked={price1} onChange={this.handleChange('price1')} value="price1" />
               }
-              label="Gilad Gray"
+              label="$"
             />
             <FormControlLabel
               control={
-                <Checkbox checked={jason} onChange={this.handleChange('jason')} value="jason" />
+                <Checkbox checked={price2} onChange={this.handleChange('price2')} value="price2" />
               }
-              label="Jason Killian"
+              label="$$"
             />
-                        <FormControlLabel
+              <FormControlLabel
               control={
                 <Checkbox
-                  checked={antoine}
-                  onChange={this.handleChange('antoine')}
-                  value="antoine"
+                  checked={price3}
+                  onChange={this.handleChange('price3')}
+                  value="price3"
                 />
               }
-              label="Antoine Llorca"
+              label="$$$"
+            />
+             <FormControlLabel
+              control={
+                <Checkbox
+                  checked={price4}
+                  onChange={this.handleChange('price4')}
+                  value="price4"
+                />
+              }
+              label="$$$$"
             />
           </FormGroup>
-          <FormHelperText>Be careful</FormHelperText>
+          {/* <FormHelperText>Be careful</FormHelperText> */}
         </FormControl>
 
-        <FormControlLabel
+        {/* fav's button */}
+        <Button variant="outlined" className={classes.button}>
+        Submit
+        </Button>        
+
+        {/* <FormControlLabel
           control={
             <Checkbox
               checked={this.state.checkedA}
@@ -177,13 +212,13 @@ class FilterForm extends Component {
             />
           }
           label="Secondary"
-        />
+        /> */}
 
-        <Checkbox
+        {/* <Checkbox
           checked={this.state.checkedA}
           onChange={this.handleChange('checkedA')}
           value="checkedA"
-        />
+        /> */}
 
      </form> 
     )
