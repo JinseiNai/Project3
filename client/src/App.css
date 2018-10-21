@@ -1,0 +1,17 @@
+.backgroundImage {
+    background-image: url("img10.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    overflow: hidden;
+  };
+    
+ /* img {
+    border-radius: 50%; 
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
+    height: 10%; 
+    padding-bottom: 50px; 
+ }; */
+   
