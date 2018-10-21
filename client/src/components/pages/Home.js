@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import SignUpButton from '../SignupButton/index'
 import LoginButton from '../LoginButton/index'
 import Header from '../Header/Header';
-import NavButton from "../NavButtons/Containedbuttons"
 
 
 const HomePage= () => (

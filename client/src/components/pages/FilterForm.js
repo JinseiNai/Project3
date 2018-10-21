@@ -27,7 +27,11 @@ import Checkbox from '@material-ui/core/Checkbox';
 const styles = theme => ({
   container: {
     display: 'flex',
-    flexWrap: 'wrap',
+    flexWrap: 'wrap',    
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '5%',
+    paddingTop: '2%',
   },
   textField: {
     marginLeft: theme.spacing.unit,
@@ -44,10 +48,12 @@ const styles = theme => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
+    flexGrow: 1,
   },
   formControl: {
     margin: theme.spacing.unit,
     minWidth: 120,
+    maxWidth:150,
   },
   selectEmpty: {
     marginTop: theme.spacing.unit * 1,
@@ -56,6 +62,8 @@ const styles = theme => ({
   // style for clickbox
   root: {
     display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   formControl: {
     margin: theme.spacing.unit * 1,
@@ -100,7 +108,7 @@ class FilterForm extends Component {
           style={{ margin: 8 }}
           placeholder="Location"
           helperText="Input location!"
-          fullWidth
+          // fullWidth
           margin="normal"
           variant="outlined"
           InputLabelProps={{
@@ -113,7 +121,7 @@ class FilterForm extends Component {
           style={{ margin: 8 }}
           placeholder="Cuisine"
           helperText="What you want to eat!"
-          fullWidth
+          // fullWidth
           margin="small"
           variant="outlined"
           InputLabelProps={{
@@ -192,8 +200,8 @@ class FilterForm extends Component {
 
         {/* fav's button */}
         <Button variant="outlined" className={classes.button}>
-        Favorites
-        </Button>
+        Submit
+        </Button>        
 
         {/* <FormControlLabel
           control={
