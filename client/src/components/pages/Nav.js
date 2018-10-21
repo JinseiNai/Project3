@@ -32,8 +32,7 @@ class NavPage extends Component {
     render() {
         return (
             <div align="center">
-            
-                {/* <Header /> */}
+                <Header />
                 <div class="span2" >
                 <BtnList > 
                     <li className="listitem" ><NavButton label="Favorites" /></li>
@@ -46,8 +45,6 @@ class NavPage extends Component {
                     <p>{this.state.firstName}</p>
                 </BtnList>
                 </div>
-            
-                
             </div>
         )
     }

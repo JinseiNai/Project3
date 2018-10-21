@@ -1,12 +1,7 @@
 // page where it shows selection of yelp api results and randomly picks one
 import React, { Component } from "react";
-<<<<<<< HEAD
-import axios from "axios";
-// import logo from "./colorwheel.png"
-=======
 import axios from "axios"
 import Winwheel from 'winwheel'
->>>>>>> d454e9e61dc521710cf05f1e1a76fc0472f1662c
 
 class Wheel extends Component {
     // functions here

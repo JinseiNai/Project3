@@ -12,15 +12,12 @@ import axios from "axios"
 import LoginForm from "./components/LoginForm/LoginForm";
 import Wheel from "./components/pages/Wheel"
 import NavPage from "./components/pages/Nav";
-<<<<<<< HEAD
 import "./App.css";
 import logo from "./gtfo.png"
 import wheel from "./colorwheel.png"
-=======
 import Filter from "./components/pages/Filter";
 import Favorites from "./components/pages/Favorites";
 
->>>>>>> d454e9e61dc521710cf05f1e1a76fc0472f1662c
 
 class App extends Component {
   // state and passport work
