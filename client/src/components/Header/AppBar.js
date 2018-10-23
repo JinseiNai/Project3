@@ -15,7 +15,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import SimpleMenu from './SimpleMenu'
 import Colorwheel from '../../colorwheel.png'
-import Logo from './gtfo.png'
+import Logo from '../../gtfo.png'
 
 const styles = {
   root: {
