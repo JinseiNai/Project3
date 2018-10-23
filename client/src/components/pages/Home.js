@@ -2,12 +2,9 @@ import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import SignUpButton from '../SignupButton/index'
 import LoginButton from '../LoginButton/index'
-import { hideWheel } from '../HideWheel/HideWheel'
+import Header from '../Header/Header';
 
 class HomePage extends Component {
-    componentDidMount() {
-        hideWheel()
-    }
     render() {
         return(
         <div align= "center"  >
