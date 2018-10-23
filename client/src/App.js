@@ -5,16 +5,16 @@ import Grid from '@material-ui/core/Grid';
 import LoginPage from "./components/pages/LoginPage";
 import HomePage from "./components/pages/Home"
 import SignUpPage from "./components/SignUpForm/SignUpForm";
-// import SignUpForm from "./components/SignUpForm/SignUpForm";
+import SignUpForm from "./components/SignUpForm/SignUpForm";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import axios from "axios"
 import LoginForm from "./components/LoginForm/LoginForm";
-// import Wheel from "./components/pages/Wheel"
+import Wheel from "./components/pages/Wheel"
 import NavPage from "./components/pages/Nav";
 import "./App.css";
-// import logo from "./gtfo.png"
-// import wheel from "./colorwheel.png"
+import logo from "./gtfo.png"
+import wheel from "./colorwheel.png"
 import Filter from "./components/pages/Filter";
 import Favorites from "./components/pages/Favorites";
 
@@ -100,7 +100,7 @@ class App extends Component {
               <Route path="/login" render={() => <LoginForm _login={this._login} />} />
               <Route path="/signup" component={SignUpPage} />
               <Route path="/nav" render={() => <NavPage user={this.state.user} />} />
-              {/* <Route path="/wheel" render={() => <Wheel user={this.state.user} />} /> */}
+              <Route path="/wheel" render={() => <Wheel user={this.state.user} />} />
               <Route path="/filter" render={() => <Filter user={this.state.user} />} />     
               <Route path="/favorites" render={() => <Favorites user={this.state.user} />} />                         
             </Switch>
