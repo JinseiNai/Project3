@@ -13,11 +13,12 @@ class Header extends Component {
          <h1 className="Header-title" >
          {/* Food Decid-a-nator!, Indecisi-Food, Food Roulette, Food Now!, Feed Me */}
          </h1>
-       </header>
-       <p className="Header-intro"><h2>
+         <p className="Header-intro"><h2>
        Oh, where to eat!
        </h2>
        </p>
+       </header>
+
  
      </div>
    );
