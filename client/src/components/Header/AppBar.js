@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -13,13 +14,17 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import SimpleMenu from './SimpleMenu'
+import Colorwheel from './colorwheel.png'
+import Logo from './gtfo.png'
 
 const styles = {
   root: {
     backgroundColor: 'rgba(255, 255, 255, .20)',
+    paddingBottom: '0%',
   },
   grow: {
     flexGrow: 1,
+    paddingBottom: '0%',
   },
   menuButton: {
     marginLeft: -12,
@@ -78,7 +83,11 @@ class MenuAppBar extends React.Component {
               <MenuIcon />
             </IconButton>               */}
             <Typography variant="title" color="inherit" className={classes.grow}>
-              <h1>GTFO!</h1>
+            <Link to='/nav'>  
+              <img src={Logo} width='15%' height='15%'></img>
+              </Link>  
+
+              <img src={Colorwheel} width='8%' height='8%'></img>  
             </Typography>
             {auth && (
               <div>
