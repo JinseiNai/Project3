@@ -13,11 +13,17 @@ import CardMedia from '@material-ui/core/CardMedia';
 
 // text card
 const styles = {
-  card: {
-    minWidth: 275,
+  layout: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',    
+    alignItems: 'center',
+  },
+  card: {
+    minWidth: 275,
+    maxWidth: 350,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',   
   },
   bullet: {
     display: 'inline-block',
@@ -54,6 +60,7 @@ function FavoritesCard(props) {
   const bull = <span className={classes.bullet}>•</span>;
 
   return (
+    <div className={classes.layout}>
     <Card className={classes.card}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" align="center">
@@ -75,6 +82,7 @@ function FavoritesCard(props) {
         <Button size="small">Learn More</Button>
       </CardActions>
     </Card>
+    </div>
   );
 }
 
@@ -82,6 +90,7 @@ function FavoritesCard(props) {
 // function FavoritesCard(props) {
 //     const { classes } = props;
 //     return (
+//       <div className={classes.layout}>
 //       <Card className={classes.card}>
 //         <CardActionArea align="center">
 //           <CardMedia
@@ -109,6 +118,7 @@ function FavoritesCard(props) {
 //         </Button>
 //       </CardActions>
 //     </Card>
+//     </div>
 //   );
 // }
 

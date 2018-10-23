@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import axios from "axios"
 import Winwheel from 'winwheel'
 
+
 class Wheel extends Component {
     // functions here
     // state work
@@ -22,23 +23,24 @@ class Wheel extends Component {
         this.colors = ['orange', 'red', 'blue', 'green', 'yellow', 'purple']
     }
 
+
     // random number generator between 1-9
     // when plugging into place picker function yelpResults[parseInt(randomPlaceIndex)-1]
-    handleRandomIndex() {
-        let randomIndex = Math.floor(Math.random() * 10);
-        this.setState({ randomPlaceIndex: randomIndex });
-        console.log(this.state.randomPlaceIndex);
-    }
+     handleRandomIndex() {
+         let randomIndex = Math.floor(Math.random() * 10);
+         this.setState({ randomPlaceIndex: randomIndex });
+         console.log(this.state.randomPlaceIndex);
+     }
 
-    componentDidMount() {
-        this.handleRandomIndex();
-        this.yelpHandler();
-    }
+     componentDidMount() {
+         this.handleRandomIndex();
+         this.yelpHandler();
+     }
 
     // yelp api work
-    yelpHandler() {
+     yelpHandler() {
         // replace san diego with city user ask for
-        console.log("grabbing yelp info")
+         console.log("grabbing yelp info")
 
         let url = "/api/search/";
         axios.get(url, {
@@ -77,24 +79,25 @@ class Wheel extends Component {
                 console.log(this.state.yelpResults)
                 console.log(this.state)
             })
+
             
-            if (response.data.businesses) {
-                console.log("you did it")
-            }
-        });
-    }
+         if (response.data.businesses) {
+                 console.log("you did it")
+             }
+         });
+     }
 
     consolelogstate (){
         console.log(this.state.yelpResults)
-        // this.updateWheel()
     }
   
+
     render() {
         return (
             <div align="center">
                 {/* <img src={logo} width="100" height="100" ></img> */}
                 <canvas id='canvas' width='500' height='500'></canvas>
-                {/* <button onClick={this.myWheel.startAnimation}>Spin</button> */}
+                <button onClick={() => this.state.myWheel.startAnimation()}>Spin</button>
                 <div  style={{paddingTop:110}}>
                     <button type="button" onClick={this.consolelogstate}  
                     className="btn btn-primary mt-3 ml-4 btn-lg">
@@ -104,5 +107,4 @@ class Wheel extends Component {
         )
     }
 }
-
 export default Wheel

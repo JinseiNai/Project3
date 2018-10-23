@@ -27,7 +27,7 @@ class NavPage extends Component {
     render() {
         return (
             <div align="center">
-                {/* <Header /> */}
+                <Header />
                 <div class="span2" >
                 <BtnList > 
                     <li className="listitem" ><NavButton label="Favorites" /></li>
