@@ -88,10 +88,9 @@ class App extends Component {
     return (
       <Router>
         <div class= "backgroundImage">
-        {/* <div align="center" style={{paddingBottom:110}}> */}
-         {/* <img src={logo} width="200" height="200" ></img>  */}
-         {/* <img src={wheel} width="200" height="200" ></img> */}
-        {/* </div>  */}
+        {/* <div align="center" style={{paddingBottom:110}}>
+         <img src={logo} width="200" height="200" ></img> 
+        </div>  */}
 
          {/* <Header /> */}
           <div style={{ minHeight: 'calc(100vh - 50px)' }}>

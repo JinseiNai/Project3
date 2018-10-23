@@ -14,7 +14,7 @@ const dbConnection = require('./server/db')
 const passport = require("./server/passport");
 const Yelp = require("./server/yelp/yelp")
 const yelp = new Yelp({ apiKey: process.env.YELPAPI })
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
