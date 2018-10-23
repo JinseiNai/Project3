@@ -27,7 +27,7 @@ class LoginButton extends React.Component {
     return (
     
       <button class="buttonHolder" onClick={this.handleClick}
-      className="btn btn-info mt-3 mr-4 btn-lg">
+      className="btn btn-success mt-3 mr-4 btn-lg" >
         Login
       </button>
     

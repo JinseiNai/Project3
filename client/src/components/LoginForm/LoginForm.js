@@ -4,6 +4,8 @@ import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import { Redirect } from 'react-router-dom';
+import green from '@material-ui/core/colors/green';
+
 // import { url } from "inspector";
 // import image from 1.jpg;
 
@@ -21,6 +23,9 @@ const styles = theme => ({
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit
     },
+    borderOverride: {
+        borderColor: 'green',
+    },    
     dense: {
         marginTop: 16,
     },
@@ -29,6 +34,9 @@ const styles = theme => ({
     },
     rightIcon: {
         marginLeft: theme.spacing.unit,
+    },
+    palette: {
+        primary: green,
     },
 });
 
@@ -85,6 +93,9 @@ class Login extends Component {
                                 id="outlined-username"
                                 label="Username"
                                 className={classes.textField}
+                                InputProps={{
+                                    classes: { notchedOutline: classes.borderOverride }
+                                }}                                
                                 value={this.state.name}
                                 onChange={this.handleChange('username')}
                                 margin="normal"
@@ -99,16 +110,20 @@ class Login extends Component {
                                 id="outlined-password-input"
                                 label="Password"
                                 className={classes.textField}
+                            InputProps={{
+                                classes: { notchedOutline: classes.borderOverride }
+                            }}                                  
                                 type="password"
                                 autoComplete="current-password"
                                 onChange={this.handleChange('password')}
                                 margin="normal"
                                 variant="outlined"
+                                color="primary"
                             />
                             </div>
                            
                             <div align="center" >
-                            <button className="btn btn-outline-info mt-1 ml-1">Login</button>
+                            <button className="btn btn-outline-success mt-1 ml-1">Login</button>
                             </div>
                             
                         

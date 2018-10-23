@@ -24,7 +24,7 @@ class FavsButton extends React.Component {
     const { classes } = this.props;
     return (
       <button onClick={this.handleClick}
-      className="btn btn-info mt-3">
+      className="btn btn-success mt-3">
         Favorites
       </button>
     );
