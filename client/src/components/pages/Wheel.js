@@ -134,7 +134,6 @@ class Wheel extends Component {
                 <SimpleModalWrapped open={this.state.open} handleClose={this.handleClose} handleOpen={this.handleOpen} resultName={this.state.randomResult.name}
                     resultRating={this.state.randomResult.rating}
                     resultAddress1={this.state.resultLocation}
-                    // resultAddress2={this.state.randomResult.location.display_address[1]}
                     resultPhone={this.state.randomResult.phone}
                     resultUrl={this.state.randomResult.url} 
                     resultPrice = {this.state.randomResult.price}/>

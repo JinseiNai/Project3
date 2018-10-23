@@ -98,7 +98,7 @@ class App extends Component {
               <Route exact path="/" component={HomePage} />
               <Route path="/login" render={() => <LoginForm _login={this._login} />} />
               <Route path="/signup" component={SignUpPage} />
-              <Route path="/nav" render={() => <NavPage user={this.state.user} />} />
+              <Route path="/nav" render={() => <NavPage _logout={this._logout} user={this.state.user} />} />
               <Route path="/wheel" render={() => <Wheel user={this.state.user} />} />
               <Route path="/filter" render={() => <Filter user={this.state.user} />} />     
               <Route path="/favorites" render={() => <Favorites user={this.state.user} />} />                         
