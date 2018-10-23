@@ -4,8 +4,6 @@ import axios from "axios"
 import Winwheel from 'winwheel'
 import SimpleModalWrapped from "../ResultModal/resultModal"
 
-
-
 class Wheel extends Component {
     // functions here
     // state work
@@ -22,6 +20,7 @@ class Wheel extends Component {
                 'numSegments' : 0
             })
         }
+        this.chosenPlace = null
         this.yelpHandler = this.yelpHandler.bind(this)
         this.consolelogstate = this.consolelogstate.bind(this)
         // Colors for the wheel segments
@@ -44,9 +43,24 @@ class Wheel extends Component {
             open: true
         })
     };
+
     handleClose = () => {
         this.setState({ open: false });
     };
+
+    // Get result from whatever the spinning wheel lands on
+    updatePrize() {
+        var result = this.state.myWheel.getIndicatedSegment();
+        console.log(result);
+        this.chosenPlace = result
+    }
+
+    // Alert Prize
+    alertPrize() {
+        console.log(this.chosenPlace.text)
+        alert(this.chosenPlace.text)
+    }
+
     // random number generator between 1-9
     // when plugging into place picker function yelpResults[parseInt(randomPlaceIndex)-1]
      handleRandomIndex() {
@@ -101,15 +115,14 @@ class Wheel extends Component {
                         'type' : 'spinToStop',
                         'duration' : 5,
                         'spins' : 8
-                    }
+                    },
+                    // 'callbackFinished' : this.updatePrize()
                 })
             },
             () => {
                 console.log(this.state.yelpResults)
                 console.log(this.state)
             })
-
-            
          if (response.data.businesses) {
                  console.log("you did it")
              }
@@ -119,13 +132,18 @@ class Wheel extends Component {
     consolelogstate (){
         console.log(this.state.yelpResults)
     }
-  
 
+    spinBtn() {
+        this.state.myWheel.startAnimation();
+        this.updatePrize();
+        this.alertPrize();
+    }
+  
     render() {
         return (
             <div align="center">
                 <canvas id='canvas' width='500' height='500'></canvas>
-                <button onClick={() => this.state.myWheel.startAnimation()}>Spin</button>
+                <button onClick={() => this.spinBtn()}>Spin</button>
                 <div  style={{paddingTop:110}}>
                     <button type="button" onClick={this.consolelogstate}  
                     className="btn btn-primary mt-3 ml-4 btn-lg">
