@@ -3,34 +3,6 @@ import React, { Component } from "react";
 import axios from "axios"
 import Winwheel from 'winwheel'
 
-
-class Wheel extends Component {
-//     // functions here
-//     // state work
-constructor() {
-         super()
-         this.state = {
-             randomPlaceIndex: 0,
-             city: "",
-             yelpResults: [],
-             myWheel : new Winwheel({
-                 'numSegments' : 0
-             })
-         }
-         this.yelpHandler = this.yelpHandler.bind(this)
-         this.consolelogstate = this.consolelogstate.bind(this)
-
-}
-
-    // Update myWheel according to yelpResults
-     updateWheel() {
-         this.setState({
-             myWheel : new Winwheel({
-                 'numSegments' : (this.setState.yelpResults.length)
-             })
-         })
-    }
-
 class Wheel extends Component {
     // functions here
     // state work
@@ -116,8 +88,8 @@ class Wheel extends Component {
 
      consolelogstate (){
          console.log(this.state.yelpResults)
-        // this.updateWheel()
-    // }
+        this.updateWheel()
+    }
   
 
     render() {
@@ -135,4 +107,4 @@ class Wheel extends Component {
         )
     }
 }
-export default Wheel
+export default Wheel;

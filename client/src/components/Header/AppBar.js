@@ -14,7 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import SimpleMenu from './SimpleMenu'
-import Colorwheel from './colorwheel.png'
+import Colorwheel from '../../colorwheel.png'
 import Logo from './gtfo.png'
 
 const styles = {
