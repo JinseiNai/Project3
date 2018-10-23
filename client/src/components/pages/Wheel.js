@@ -2,6 +2,8 @@
 import React, { Component } from "react";
 import axios from "axios"
 import Winwheel from 'winwheel'
+import SimpleModalWrapped from "../ResultModal/resultModal"
+
 
 
 class Wheel extends Component {
@@ -12,7 +14,10 @@ class Wheel extends Component {
         this.state = {
             randomPlaceIndex: 0,
             city: "",
-            yelpResults: [],
+            yelpResults: "",
+            randomResult: "",
+            open: false,
+            resultLocation:"",
             myWheel : new Winwheel({
                 'numSegments' : 0
             })
@@ -23,17 +28,37 @@ class Wheel extends Component {
         this.colors = ['orange', 'red', 'blue', 'green', 'yellow', 'purple']
     }
 
-
+    // modal
+    handleOpen = () => {
+        // let statecopy = JSON.parse(JSON.stringify(this.state))
+        // statecopy.open = true
+        // console.log(statecopy)
+        // this.setState({
+        //     randomPlaceIndex: statecopy.randomPlaceIndex,
+        //     yelpResults: statecopy.yelpResults,
+        //     randomResult: statecopy.randomResult,
+        //     resultLocation: statecopy.resultLocation,
+        //     open: statecopy.open
+        // });
+        this.setState({
+            open: true
+        })
+    };
+    handleClose = () => {
+        this.setState({ open: false });
+    };
     // random number generator between 1-9
     // when plugging into place picker function yelpResults[parseInt(randomPlaceIndex)-1]
      handleRandomIndex() {
-         let randomIndex = Math.floor(Math.random() * 10);
-         this.setState({ randomPlaceIndex: randomIndex });
-         console.log(this.state.randomPlaceIndex);
+        //  let randomIndex = Math.floor(Math.random() * 10);
+        //  this.setState({ randomPlaceIndex: randomIndex });
+        //  console.log(this.state.randomPlaceIndex);
+        return Math.floor(Math.random() * 10);
+
      }
 
      componentDidMount() {
-         this.handleRandomIndex();
+        //  this.handleRandomIndex();
          this.yelpHandler();
      }
 
@@ -41,6 +66,8 @@ class Wheel extends Component {
      yelpHandler() {
         // replace san diego with city user ask for
          console.log("grabbing yelp info")
+         let number = this.handleRandomIndex();
+        console.log(number)
 
         let url = "/api/search/";
         axios.get(url, {
@@ -61,6 +88,8 @@ class Wheel extends Component {
             }))
             this.setState({
                 yelpResults: response.data.businesses,
+                randomResult: response.data.businesses[number],
+                resultLocation: response.data.businesses[number].location.address1,
                 myWheel : new Winwheel({
                     'numSegments' : numSeg,
                     'segments' : names,
@@ -102,6 +131,13 @@ class Wheel extends Component {
                     className="btn btn-primary mt-3 ml-4 btn-lg">
                     Submit</button>
                 </div>
+                <SimpleModalWrapped open={this.state.open} handleClose={this.handleClose} handleOpen={this.handleOpen} resultName={this.state.randomResult.name}
+                    resultRating={this.state.randomResult.rating}
+                    resultAddress1={this.state.resultLocation}
+                    // resultAddress2={this.state.randomResult.location.display_address[1]}
+                    resultPhone={this.state.randomResult.phone}
+                    resultUrl={this.state.randomResult.url} 
+                    resultPrice = {this.state.randomResult.price}/>
             </div>
         )
     }
