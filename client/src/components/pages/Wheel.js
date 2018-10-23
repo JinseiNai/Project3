@@ -95,7 +95,6 @@ class Wheel extends Component {
     render() {
         return (
             <div align="center">
-                {/* <img src={logo} width="100" height="100" ></img> */}
                 <canvas id='canvas' width='500' height='500'></canvas>
                 <button onClick={() => this.state.myWheel.startAnimation()}>Spin</button>
                 <div  style={{paddingTop:110}}>
