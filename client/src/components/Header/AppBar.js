@@ -104,7 +104,7 @@ class MenuAppBar extends React.Component {
                   open={open}
                   onClose={this.handleClose}
                 >
-                  <MenuItem onClick={this.handleClose}>Log Out</MenuItem>
+                  <MenuItem onClick={this.props._logout}>Log Out</MenuItem>
                   <MenuItem onClick={this.handleClose}>Profile</MenuItem>
 
                 </Menu>

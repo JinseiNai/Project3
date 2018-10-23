@@ -27,8 +27,9 @@ class NavPage extends Component {
     render() {
         return (
             <div align="center">
-                <Header />
-                <div class="span2" >
+                <Header _logout={this.props._logout} />
+                <div className="span2" > 
+                <p> Welcome back! {this.state.firstName}</p>
                 <BtnList > 
                     <li className="listitem" ><NavButton label="Favorites" /></li>
                     <br></br>
@@ -37,7 +38,7 @@ class NavPage extends Component {
                     <li className="listitem"><NavButton label="Create List" /> </li>
                     <br></br>
                     <li className="listitem"><NavButton label="Randomizer" /> </li>
-                    <p>{this.state.firstName}</p>
+                    
                 </BtnList>
                 </div>
             </div>

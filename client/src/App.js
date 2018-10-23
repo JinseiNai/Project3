@@ -87,7 +87,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div class= "backgroundImage">
+        <div className= "backgroundImage">
         <div align="center" style={{paddingBottom:110}}>
          <img src={logo} width="200" height="200" ></img> <img src={wheel} width="200" height="200" ></img>
         </div> 
@@ -98,7 +98,7 @@ class App extends Component {
               <Route exact path="/" component={HomePage} />
               <Route path="/login" render={() => <LoginForm _login={this._login} />} />
               <Route path="/signup" component={SignUpPage} />
-              <Route path="/nav" render={() => <NavPage user={this.state.user} />} />
+              <Route path="/nav" render={() => <NavPage _logout={this._logout} user={this.state.user} />} />
               <Route path="/wheel" render={() => <Wheel user={this.state.user} />} />
               <Route path="/filter" render={() => <Filter user={this.state.user} />} />     
               <Route path="/favorites" render={() => <Favorites user={this.state.user} />} />                         

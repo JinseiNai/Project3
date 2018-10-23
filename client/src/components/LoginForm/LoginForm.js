@@ -108,7 +108,7 @@ class Login extends Component {
                             </div>
                            
                             <div align="center" >
-                            <button className="btn btn-outline-info mt-1 ml-1">Login</button>
+                            <button className="btn btn-outline-info mt-1 ml-1" onClick={this.handleSubmit}>Login</button>
                             </div>
                             
                         
