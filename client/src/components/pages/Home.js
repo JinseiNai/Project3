@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import SignUpButton from '../SignupButton/index'
 import LoginButton from '../LoginButton/index'
 // import Header from '../Header/Header';
-import logo from "./gtfo.png";
+import logo from "../../gtfo.png";
 
 
 class HomePage extends Component {

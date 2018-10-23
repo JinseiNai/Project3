@@ -5,7 +5,6 @@ import Winwheel from 'winwheel'
 import SimpleModalWrapped from "../ResultModal/resultModal"
 
 
-
 class Wheel extends Component {
     // functions here
     // state work
@@ -142,4 +141,4 @@ class Wheel extends Component {
         )
     }
 }
-export default Wheel
+export default Wheel;
