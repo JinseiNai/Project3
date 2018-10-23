@@ -22,6 +22,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 
+// button color
+import green from '@material-ui/core/colors/green';
+
 
 const styles = theme => ({
   container: {
@@ -75,6 +78,9 @@ const styles = theme => ({
   },
   input: {
     display: 'none',
+  },
+  palette: {
+    primary: green,
   },
 });
 
@@ -199,7 +205,7 @@ class FilterForm extends Component {
         </FormControl>
 
         {/* fav's button */}
-        <Button variant="contained" className={classes.button}>
+        <Button variant="contained" color="primary" className={classes.button}>
         Submit
         </Button>        
 
