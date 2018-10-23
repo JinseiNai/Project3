@@ -13,8 +13,8 @@ import LoginForm from "./components/LoginForm/LoginForm";
 import Wheel from "./components/pages/Wheel"
 import NavPage from "./components/pages/Nav";
 import "./App.css";
-import logo from "./gtfo.png"
-import wheel from "./colorwheel.png"
+import logo from "./components/pages/gtfo.png"
+import wheel from "./components/Header/colorwheel.png"
 import Filter from "./components/pages/Filter";
 import Favorites from "./components/pages/Favorites";
 
@@ -88,10 +88,9 @@ class App extends Component {
     return (
       <Router>
         <div class= "backgroundImage">
-        {/* <div align="center" style={{paddingBottom:110}}> */}
-         {/* <img src={logo} width="200" height="200" ></img>  */}
-         {/* <img src={wheel} width="200" height="200" ></img> */}
-        {/* </div>  */}
+        {/* <div align="center" style={{paddingBottom:110}}>
+         <img src={logo} width="200" height="200" ></img> 
+        </div>  */}
 
          {/* <Header /> */}
           <div style={{ minHeight: 'calc(100vh - 50px)' }}>

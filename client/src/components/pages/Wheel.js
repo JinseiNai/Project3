@@ -86,9 +86,8 @@ class Wheel extends Component {
          });
      }
 
-     consolelogstate (){
-         console.log(this.state.yelpResults)
-        this.updateWheel()
+    consolelogstate (){
+        console.log(this.state.yelpResults)
     }
   
 
@@ -97,7 +96,7 @@ class Wheel extends Component {
             <div align="center">
                 {/* <img src={logo} width="100" height="100" ></img> */}
                 <canvas id='canvas' width='500' height='500'></canvas>
-                {/* <button onClick={this.myWheel.startAnimation}>Spin</button> */}
+                <button onClick={() => this.state.myWheel.startAnimation()}>Spin</button>
                 <div  style={{paddingTop:110}}>
                     <button type="button" onClick={this.consolelogstate}  
                     className="btn btn-primary mt-3 ml-4 btn-lg">
