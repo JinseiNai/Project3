@@ -13,8 +13,8 @@ import LoginForm from "./components/LoginForm/LoginForm";
 import Wheel from "./components/pages/Wheel"
 import NavPage from "./components/pages/Nav";
 import "./App.css";
-import logo from "./gtfo.png"
-import wheel from "./colorwheel.png"
+import logo from "./components/pages/gtfo.png"
+import wheel from "./components/Header/colorwheel.png"
 import Filter from "./components/pages/Filter";
 import Favorites from "./components/pages/Favorites";
 
