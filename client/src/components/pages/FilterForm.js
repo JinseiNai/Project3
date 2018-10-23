@@ -14,7 +14,6 @@ import NativeSelect from '@material-ui/core/NativeSelect';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
-
 // imports for clickboxes
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
@@ -36,6 +35,7 @@ const styles = theme => ({
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
+    color: 'black',
   },
   dense: {
     marginTop: 16,
@@ -199,7 +199,7 @@ class FilterForm extends Component {
         </FormControl>
 
         {/* fav's button */}
-        <Button variant="outlined" className={classes.button}>
+        <Button variant="contained" className={classes.button}>
         Submit
         </Button>        
 

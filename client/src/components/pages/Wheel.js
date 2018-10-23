@@ -3,6 +3,34 @@ import React, { Component } from "react";
 import axios from "axios"
 import Winwheel from 'winwheel'
 
+
+class Wheel extends Component {
+//     // functions here
+//     // state work
+constructor() {
+         super()
+         this.state = {
+             randomPlaceIndex: 0,
+             city: "",
+             yelpResults: [],
+             myWheel : new Winwheel({
+                 'numSegments' : 0
+             })
+         }
+         this.yelpHandler = this.yelpHandler.bind(this)
+         this.consolelogstate = this.consolelogstate.bind(this)
+
+}
+
+    // Update myWheel according to yelpResults
+     updateWheel() {
+         this.setState({
+             myWheel : new Winwheel({
+                 'numSegments' : (this.setState.yelpResults.length)
+             })
+         })
+    }
+
 class Wheel extends Component {
     // functions here
     // state work
@@ -22,23 +50,24 @@ class Wheel extends Component {
         this.colors = ['orange', 'red', 'blue', 'green', 'yellow', 'purple']
     }
 
+
     // random number generator between 1-9
     // when plugging into place picker function yelpResults[parseInt(randomPlaceIndex)-1]
-    handleRandomIndex() {
-        let randomIndex = Math.floor(Math.random() * 10);
-        this.setState({ randomPlaceIndex: randomIndex });
-        console.log(this.state.randomPlaceIndex);
-    }
+     handleRandomIndex() {
+         let randomIndex = Math.floor(Math.random() * 10);
+         this.setState({ randomPlaceIndex: randomIndex });
+         console.log(this.state.randomPlaceIndex);
+     }
 
-    componentDidMount() {
-        this.handleRandomIndex();
-        this.yelpHandler();
-    }
+     componentDidMount() {
+         this.handleRandomIndex();
+         this.yelpHandler();
+     }
 
     // yelp api work
-    yelpHandler() {
+     yelpHandler() {
         // replace san diego with city user ask for
-        console.log("grabbing yelp info")
+         console.log("grabbing yelp info")
 
         let url = "/api/search/";
         axios.get(url, {
@@ -77,18 +106,20 @@ class Wheel extends Component {
                 console.log(this.state.yelpResults)
                 console.log(this.state)
             })
-            
-            if (response.data.businesses) {
-                console.log("you did it")
-            }
-        });
-    }
 
-    consolelogstate (){
-        console.log(this.state.yelpResults)
+            
+         if (response.data.businesses) {
+                 console.log("you did it")
+             }
+         });
+     }
+
+     consolelogstate (){
+         console.log(this.state.yelpResults)
         // this.updateWheel()
-    }
+    // }
   
+
     render() {
         return (
             <div align="center">
@@ -104,5 +135,4 @@ class Wheel extends Component {
         )
     }
 }
-
 export default Wheel
