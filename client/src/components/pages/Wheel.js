@@ -22,7 +22,7 @@ class Wheel extends Component {
             })
         }
         this.yelpHandler = this.yelpHandler.bind(this)
-        this.consolelogstate = this.consolelogstate.bind(this)
+        // this.consolelogstate = this.consolelogstate.bind(this)
         // Colors for the wheel segments
         this.colors = ['orange', 'red', 'blue', 'green', 'yellow', 'purple', 'pink', 'skyblue', 'teal', 'peach', 'tan']
     }
@@ -57,10 +57,16 @@ class Wheel extends Component {
         setTimeout(function() {
             let result = this.state.myWheel.getIndicatedSegment();
             console.log(result)
+            let business = this.state.yelpResults.filter(place => place.name === result.text)
             this.setState({
-                randomResult: result.text
+                randomResult: business[0],
+                resultLocation: business[0].location.address1,
+                open: true
             })
             console.log(this.state.randomResult)
+            console.log(this.state.yelpResults)
+            console.log(business)
+            console.log(this.state.resultLocation)
         }.bind(this), 3500)
     }
 
@@ -117,7 +123,8 @@ class Wheel extends Component {
                         'type' : 'spinToStop',
                         'duration' : 3,
                         'spins' : 8
-                    }
+                    },
+                    'pins' : true
                 })
             },
             () => {
@@ -130,20 +137,20 @@ class Wheel extends Component {
          });
      }
 
-    consolelogstate (){
-        console.log(this.state.yelpResults)
-    }
+    // consolelogstate (){
+    //     console.log(this.state.yelpResults)
+    // }
   
     render() {
         return (
             <div align="center">
                 <Header />
                 <canvas id='canvas' width='500' height='500'></canvas>
-                <button onClick={() => this.spinBtn()}>Spin</button>
-                <div style={{paddingTop:110}}>
-                    <button type="button" onClick={this.consolelogstate}  
+                {/* <button onClick={() => this.spinBtn()}>Spin</button> */}
+                <div style={{paddingTop:50}}>
+                    <button type="button" onClick={() => this.spinBtn()}  
                     className="btn btn-primary mt-3 ml-4 btn-lg">
-                    Submit</button>
+                    Spin</button>
                 </div>
                 <SimpleModalWrapped open={this.state.open} handleClose={this.handleClose} handleOpen={this.handleOpen} resultName={this.state.randomResult.name}
                     resultRating={this.state.randomResult.rating}
