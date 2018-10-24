@@ -8,8 +8,7 @@ class Favorites extends Component {
         return (
             <div>
                 <Header />
-                   <FavoritesCard /> 
-                <Footer />
+                <FavoritesCard />
             </div>
         )
     }

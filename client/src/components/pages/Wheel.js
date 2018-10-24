@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import axios from "axios"
 import Winwheel from 'winwheel'
 import SimpleModalWrapped from "../ResultModal/resultModal"
+import Header from "../Header/Header";
 
 class Wheel extends Component {
     // functions here
@@ -22,9 +23,9 @@ class Wheel extends Component {
             // userId: ""
         }
         this.yelpHandler = this.yelpHandler.bind(this)
-        this.consolelogstate = this.consolelogstate.bind(this)
+        // this.consolelogstate = this.consolelogstate.bind(this)
         // Colors for the wheel segments
-        this.colors = ['orange', 'red', 'blue', 'green', 'yellow', 'purple']
+        this.colors = ['orange', 'red', 'blue', 'green', 'yellow', 'purple', 'pink', 'skyblue', 'teal', 'peach', 'tan']
     }
 
     // modal
@@ -33,17 +34,41 @@ class Wheel extends Component {
             open: true
         })
     };
+
     handleClose = () => {
         this.setState({ open: false });
     };
+
+    // When spin button is clicked
+    // Start the spin animation
+    // then get result of indicated pointer
+    spinBtn() {
+        this.state.myWheel.startAnimation();
+        console.log(this.state.myWheel)
+        setTimeout(function() {
+            let result = this.state.myWheel.getIndicatedSegment();
+            console.log(result)
+            let business = this.state.yelpResults.filter(place => place.name === result.text)
+            this.setState({
+                randomResult: business[0],
+                resultLocation: business[0].location.address1,
+                open: true
+            })
+            console.log(this.state.randomResult)
+            console.log(this.state.yelpResults)
+            console.log(business)
+            console.log(this.state.resultLocation)
+        }.bind(this), 3500)
+    }
+
     // random number generator between 1-9
     // when plugging into place picker function yelpResults[parseInt(randomPlaceIndex)-1]
     handleRandomIndex() {
         return Math.floor(Math.random() * 10);
-    }
+     }
 
-    componentDidMount() {
-        //  this.handleRandomIndex();
+     componentDidMount() {
+    
         this.yelpHandler();
     }
 
@@ -74,32 +99,31 @@ class Wheel extends Component {
                 yelpResults: response.data.businesses,
                 randomResult: response.data.businesses[number],
                 resultLocation: response.data.businesses[number].location.address1,
-                // userId: this.props.userId,
-                myWheel: new Winwheel({
-                    'numSegments': numSeg,
-                    'segments': names,
-                    'textFontSize': 14,
-                    'textDirection': 'reversed',
-                    'lineWidth': 8,
-                    'centerY': 250,
-                    'animation': {
-                        'type': 'spinToStop',
-                        'duration': 5,
-                        'spins': 8
-                    }
+                myWheel : new Winwheel({
+                    'numSegments' : numSeg,
+                    'segments' : names,
+                    'textFontSize' : 14,
+                    'textDirection' : 'reversed',
+                    'lineWidth' : 8,
+                    'centerY' : 250,
+                    'animation' : {
+                        'type' : 'spinToStop',
+                        'duration' : 3,
+                        'spins' : 8
+                    },
+                    'pins' : true
                 })
             },
-                () => {
-                    console.log(this.state.yelpResults)
-                    console.log(this.state)
-                })
+            () => {
+                console.log(this.state.yelpResults)
+                console.log(this.state)
+            })
+         if (response.data.businesses) {
+                 console.log("you did it")
+             }
+         });
+     }
 
-
-            if (response.data.businesses) {
-                console.log("you did it")
-            }
-        });
-    }
     //saving favorites to db
     saveFavorites() {
         //yelp link
@@ -124,22 +148,17 @@ class Wheel extends Component {
         // })
         
     }
-
-    consolelogstate() {
-        console.log(this.state.yelpResults)
-    }
-
-
+  
     render() {
         return (
             <div align="center">
-                {/* <img src={logo} width="100" height="100" ></img> */}
+                <Header />
                 <canvas id='canvas' width='500' height='500'></canvas>
-                <button onClick={() => this.state.myWheel.startAnimation()}>Spin</button>
-                <div style={{ paddingTop: 110 }}>
-                    <button type="button" onClick={this.consolelogstate}
-                        className="btn btn-primary mt-3 ml-4 btn-lg">
-                        Submit</button>
+                {/* <button onClick={() => this.spinBtn()}>Spin</button> */}
+                <div style={{paddingTop:50}}>
+                    <button type="button" onClick={() => this.spinBtn()}  
+                    className="btn btn-primary mt-3 ml-4 btn-lg">
+                    Spin</button>
                 </div>
                 {this.props.userId &&
                 <SimpleModalWrapped
