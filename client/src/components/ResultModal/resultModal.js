@@ -58,7 +58,7 @@ class SimpleModal extends React.Component {
         return (
             <div>
                 {/* submit button/random button placement */}
-                <Button onClick={this.props.handleOpen}>Randomize!</Button>
+                {/* <Button onClick={this.props.handleOpen}>Randomize!</Button> */}
                 <Modal
                     aria-labelledby="simple-modal-title"
                     aria-describedby="simple-modal-description"
@@ -66,20 +66,20 @@ class SimpleModal extends React.Component {
                     onClose={this.props.handleClose}
                 >
                     <div style={getModalStyle()} className={classes.paper}>
-                        <Typography variant="h6" id="modal-title">
-              Randomly Chosen For You!
-                        </Typography>
-                        <Typography variant="subtitle1" id="simple-modal-description">
-                            <h3 id="placeName">{this.props.resultName}</h3>
-                            <ul>
-                                <li id="rating">{this.props.resultRating}</li>
-                                <li id="address">{this.props.resultAddress1}</li>
-                                <li id="phone">{this.props.resultPhone}</li>
-                                <li id="linkspot"><a id ="link" href={this.props.resultUrl} target="_blank"><img src="client/src/component/pages/Yelp_burst_positive_RBG.png"  alt="yelpicon with link"/></a></li>
-                                <li id="price">{this.props.resultPrice}</li>
-                            </ul>
-            </Typography>
-            <button onClick={this.saveFavorites}>Button</button>
+                    <Typography variant="h6" id="modal-title">
+                        Randomly Chosen For You!
+                    </Typography>
+                    <Typography variant="subtitle1" id="simple-modal-description">
+                        <h3 id="placeName">{this.props.resultName}</h3>
+                        <ul style={{listStyle: 'none'}}>
+                            <li id="rating">{this.props.resultRating}</li>
+                            <li id="address">{this.props.resultAddress1}</li>
+                            <li id="phone">{this.props.resultPhone}</li>
+                            <li id="linkspot"><a id ="link" href={this.props.resultUrl} target="_blank">Yelp Link</a></li>
+                            <li id="price">{this.props.resultPrice}</li>
+                        </ul>
+                    </Typography>
+                    <button onClick={this.saveFavorites}>Favorite</button>
                         <SimpleModalWrapped />
                     </div>
                 </Modal>

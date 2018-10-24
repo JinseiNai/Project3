@@ -47,6 +47,7 @@ class NavPage extends Component {
                     <li className="listitem"><NavButton label="Randomizer" /> </li></Link>
                     
                 </BtnList>
+
                 </div>
             </div>
         )
