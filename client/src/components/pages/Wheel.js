@@ -44,6 +44,7 @@ class Wheel extends Component {
     // Start the spin animation
     // then get result of indicated pointer
     spinBtn() {
+        this.resetWheel();
         this.state.myWheel.startAnimation();
         console.log(this.state.myWheel)
         setTimeout(function() {
@@ -62,6 +63,13 @@ class Wheel extends Component {
         }.bind(this), 3500)
     }
 
+    // Resets the wheel after spin
+    resetWheel() {
+        this.state.myWheel.stopAnimation()
+        this.state.myWheel.rotationAngle = 0
+        this.state.myWheel.draw()
+    }
+
     // random number generator between 1-9
     // when plugging into place picker function yelpResults[parseInt(randomPlaceIndex)-1]
     handleRandomIndex() {
@@ -69,7 +77,6 @@ class Wheel extends Component {
      }
 
      componentDidMount() {
-    
         this.yelpHandler();
     }
 
@@ -112,7 +119,12 @@ class Wheel extends Component {
                         'duration' : 3,
                         'spins' : 8
                     },
-                    'pins' : true
+                    'pins' : true,
+                    'pointerGuide' : {
+                        'display' : true,
+                        'strokeStyle' : 'red',
+                        'lineWidth' : 3
+                    }
                 })
             },
             () => {
