@@ -1,4 +1,4 @@
-const db = require("../models");
+const db = require("../server/db/models");
 
 // Defining methods for the favoritesController
 module.exports = {
@@ -16,9 +16,14 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
+    console.log(`something create`)
+    console.log(req.body)
     db.Favorites
       .create(req.body)
-      .then(dbModel => res.json(dbModel))
+      .then(dbFavorites => {
+        console.log(dbFavorites)
+        // return db.User.findOneAndUpdate({_id: req.params.id}, {Favorites: dbFavorites.id}, {new: true})
+      })
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {

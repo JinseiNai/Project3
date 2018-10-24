@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
-
+import axios from "axios";
 
 function rand() {
     return Math.round(Math.random() * 20) - 10;
@@ -31,11 +31,19 @@ const styles = theme => ({
     },
 });
 
-class SimpleModal extends React.Component {
+class SimpleModal extends Component {
     
-    //saving favorites to db
-    saveFavorites() {
-        //yelp link
+    componentDidUpdate(prevProps){
+        console.log(prevProps)
+        console.log(this.props.userId)
+        if(prevProps.userId !== this.props.userId){
+            console.log(this.props.userid);
+        }
+    }
+    
+    //saving a history to db
+    saveHistory(){
+        // yelp link
         //name
         //address
         let link = document.getElementById("link").getAttribute('href')
@@ -44,13 +52,7 @@ class SimpleModal extends React.Component {
         console.log(link)
         console.log(name)
         console.log(address)
-        
-    }
-    //saving a history to db
-    saveHistory(){
-        // yelp link
-        //name
-        //address
+
     }
     render() {
         const { classes } = this.props;
@@ -75,11 +77,12 @@ class SimpleModal extends React.Component {
                                 <li id="rating">{this.props.resultRating}</li>
                                 <li id="address">{this.props.resultAddress1}</li>
                                 <li id="phone">{this.props.resultPhone}</li>
-                                <li id="linkspot"><a id ="link" href={this.props.resultUrl} target="_blank"><img src="client/src/component/pages/Yelp_burst_positive_RBG.png"  alt="yelpicon with link"/></a></li>
+                                <li id="linkspot"><a id ="link" href={this.props.resultUrl} target="_blank"><img src=""  alt="yelpicon with link"/></a></li>
                                 <li id="price">{this.props.resultPrice}</li>
                             </ul>
             </Typography>
-            <button onClick={this.saveFavorites}>Button</button>
+            {this.props.saveFavorites &&            <button onClick={this.props.saveFavorites}>Button</button> 
+            }
                         <SimpleModalWrapped />
                     </div>
                 </Modal>
