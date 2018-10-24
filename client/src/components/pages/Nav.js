@@ -33,18 +33,16 @@ class NavPage extends Component {
         return (
             <div align="center">
                 <Header _logout={this.props._logout} />
-                <div className="span2" > 
-                
-                <BtnList > 
-                    <li className="listitem" ><NavButton label="Favorites" /></li>
-                    <br></br>
-                    <li className="listitem"><NavButton label="Activities" /> </li>
-                    <br></br>
-                    <li className="listitem"><NavButton label="Create List" /> </li>
-                    <br></br>
-                    <li className="listitem"><NavButton label="Randomizer" /> </li>
-                    
-                </BtnList>
+                <div className="span2"> 
+                    <BtnList > 
+                        <li className="listitem" ><NavButton label="Favorites" /></li>
+                        <br></br>
+                        <li className="listitem"><NavButton label="Activities" /> </li>
+                        <br></br>
+                        <li className="listitem"><NavButton label="Create List" /> </li>
+                        <br></br>
+                        <li className="listitem"><NavButton label="Randomizer" /> </li>
+                    </BtnList>
                 </div>
             </div>
         )

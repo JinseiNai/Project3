@@ -10,11 +10,8 @@ class Filter extends Component {
     render() {
         return (
             <div>
-                 <Header /> 
-
-                   <FilterForm />
-                    
-                <Footer />
+                <Header /> 
+                <FilterForm />
             </div>
         )
     }
