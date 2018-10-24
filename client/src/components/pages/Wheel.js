@@ -16,10 +16,11 @@ class Wheel extends Component {
             yelpResults: "",
             randomResult: "",
             open: false,
-            resultLocation:"",
-            myWheel : new Winwheel({
-                'numSegments' : 0
-            })
+            resultLocation: "",
+            myWheel: new Winwheel({
+                'numSegments': 0
+            }),
+            // userId: ""
         }
         this.yelpHandler = this.yelpHandler.bind(this)
         // this.consolelogstate = this.consolelogstate.bind(this)
@@ -29,16 +30,6 @@ class Wheel extends Component {
 
     // modal
     handleOpen = () => {
-        // let statecopy = JSON.parse(JSON.stringify(this.state))
-        // statecopy.open = true
-        // console.log(statecopy)
-        // this.setState({
-        //     randomPlaceIndex: statecopy.randomPlaceIndex,
-        //     yelpResults: statecopy.yelpResults,
-        //     randomResult: statecopy.randomResult,
-        //     resultLocation: statecopy.resultLocation,
-        //     open: statecopy.open
-        // });
         this.setState({
             open: true
         })
@@ -72,25 +63,21 @@ class Wheel extends Component {
 
     // random number generator between 1-9
     // when plugging into place picker function yelpResults[parseInt(randomPlaceIndex)-1]
-     handleRandomIndex() {
-        //  let randomIndex = Math.floor(Math.random() * 10);
-        //  this.setState({ randomPlaceIndex: randomIndex });
-        //  console.log(this.state.randomPlaceIndex);
+    handleRandomIndex() {
         return Math.floor(Math.random() * 10);
      }
 
      componentDidMount() {
-        //  this.handleRandomIndex();
-         this.yelpHandler();
-     }
+    
+        this.yelpHandler();
+    }
 
     // yelp api work
-     yelpHandler() {
+    yelpHandler() {
         // replace san diego with city user ask for
-         console.log("grabbing yelp info")
-         let number = this.handleRandomIndex();
+        console.log("grabbing yelp info")
+        let number = this.handleRandomIndex();
         console.log(number)
-
         let url = "/api/search/";
         axios.get(url, {
             params: {
@@ -137,9 +124,30 @@ class Wheel extends Component {
          });
      }
 
-    // consolelogstate (){
-    //     console.log(this.state.yelpResults)
-    // }
+    //saving favorites to db
+    saveFavorites() {
+        //yelp link
+        //name
+        //address
+        // console.log(this.props.userId)
+        // let link = document.getElementById("link").getAttribute('href')
+        // let name = document.getElementById("placeName").innerText
+        // let address = document.getElementById("address").innerText
+        
+
+        console.log(link)
+        console.log(name)
+        console.log(address)
+        // axios.post("/api/favorites", {
+        //     name: name,
+        //     location: address,
+        //     site: link
+        // }).then(response => {
+        //     console.log("saved to favorites")
+        //     console.log(response)
+        // })
+        
+    }
   
     render() {
         return (
@@ -152,12 +160,20 @@ class Wheel extends Component {
                     className="btn btn-primary mt-3 ml-4 btn-lg">
                     Spin</button>
                 </div>
-                <SimpleModalWrapped open={this.state.open} handleClose={this.handleClose} handleOpen={this.handleOpen} resultName={this.state.randomResult.name}
+                {this.props.userId &&
+                <SimpleModalWrapped
+                    userId = {this.props.userId}
+                    open={this.state.open}
+                    handleClose={this.handleClose}
+                    handleOpen={this.handleOpen}
+                    resultName={this.state.randomResult.name}
                     resultRating={this.state.randomResult.rating}
                     resultAddress1={this.state.resultLocation}
                     resultPhone={this.state.randomResult.phone}
-                    resultUrl={this.state.randomResult.url} 
-                    resultPrice = {this.state.randomResult.price}/>
+                    resultUrl={this.state.randomResult.url}
+                    resultPrice={this.state.randomResult.price}
+                    saveFavorites = {this.saveFavorites} />
+                }
             </div>
         )
     }

@@ -38,7 +38,6 @@ app.use(passport.session()) // will call the deserializeUser
 // Add routes, both API and view
 /* Express app ROUTING */
 app.use('/auth', require('./server/auth'))
-// app.use(routes);
 app.get('/api/search', function (req, res) {
 	//   var term = req.query.term;
 	//   var location = req.query.location;
@@ -67,8 +66,12 @@ app.get('/api/search', function (req, res) {
 		});
 });
 
+app.use(routes);
+
+
+
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/GTFO");
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/GTFO");
 
 // Start the API server
 app.listen(PORT, function () {

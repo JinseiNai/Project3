@@ -16,6 +16,8 @@ import Menu from '@material-ui/core/Menu';
 import SimpleMenu from './SimpleMenu'
 import Colorwheel from '../../colorwheel.png'
 import Logo from '../../gtfo.png'
+import { Redirect } from 'react-router-dom'
+
 
 const styles = {
   root: {
@@ -58,6 +60,11 @@ class MenuAppBar extends React.Component {
   handleClose = () => {
     this.setState({ anchorEl: null });
   };
+
+  handleLogout = (event) => {
+    this.props._logout(event);
+    // return <Redirect to={{ pathname: "/login" }} />
+  }
 
   render() {
     const { classes } = this.props;
@@ -113,7 +120,7 @@ class MenuAppBar extends React.Component {
                   open={open}
                   onClose={this.handleClose}
                 >
-                  <MenuItem onClick={this.handleClose}>Log Out</MenuItem>
+                  <MenuItem onClick={this.handleLogout}>Log Out</MenuItem>
                   {/* <MenuItem onClick={this.handleClose}>Profile</MenuItem> */}
 
                 </Menu>

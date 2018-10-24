@@ -17,6 +17,7 @@ import "./App.css";
 // import wheel from "./components/Header/colorwheel.png"
 import Filter from "./components/pages/Filter";
 import Favorites from "./components/pages/Favorites";
+import { Redirect } from 'react-router-dom'
 
 
 class App extends Component {
@@ -59,6 +60,7 @@ class App extends Component {
           loggedIn: false,
           user: null
         })
+
       }
     })
   }
@@ -83,25 +85,37 @@ class App extends Component {
       })
   }
 
-    // add components/pages here
+  // add components/pages here
   render() {
+    const loggedIn = this.state.loggedIn;
+    const user = this.state.user
+
     return (
       <Router>
-        <div class= "backgroundImage">
-        {/* <div align="center" style={{paddingBottom:110}}>
+        <div className="backgroundImage">
+          {/* <div align="center" style={{paddingBottom:110}}>
          <img src={logo} width="200" height="200" ></img> 
         </div>  */}
 
-         {/* <Header /> */}
+          {/* <Header /> */}
           <div style={{ minHeight: 'calc(100vh - 50px)' }}>
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route path="/login" render={() => <LoginForm _login={this._login} />} />
               <Route path="/signup" component={SignUpPage} />
-              <Route path="/nav" render={() => <NavPage _logout={this._logout} user={this.state.user} />} />
-              <Route path="/wheel" render={() => <Wheel user={this.state.user} />} />
-              <Route path="/filter" render={() => <Filter user={this.state.user} />} />     
-              <Route path="/favorites" render={() => <Favorites user={this.state.user} />} />                         
+              {user &&
+                <Route path="/nav" render={() => <NavPage _logout={this._logout} user={this.state.user} loggedIn={this.state.loggedIn} />} />
+              }
+              {loggedIn &&
+                <Route path="/wheel" render={() => <Wheel user={this.state.user} userId={this.state.user._id} />} />
+              }
+              {loggedIn &&
+                <Route path="/filter" render={() => <Filter user={this.state.user} />} />
+              }
+              {loggedIn &&
+                <Route path="/favorites" render={() => <Favorites user={this.state.user} />} />
+              }
+
             </Switch>
           </div>
           <Footer />

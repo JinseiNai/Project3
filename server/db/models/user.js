@@ -13,10 +13,10 @@ const userSchema = new Schema({
 	},
 	versionKey: false,
 	// associate collections 
-	yelpresults: {
+	favorites: {
 		type: Schema.Types.ObjectId,
-		ref: "yelpresults"
-	  }
+		ref: "Favorites"
+	}
 	
 })
 
