@@ -107,7 +107,7 @@ class App extends Component {
                 <Route path="/nav" render={() => <NavPage _logout={this._logout} user={this.state.user} loggedIn={this.state.loggedIn} />} />
               }
               {loggedIn &&
-                <Route path="/wheel" render={() => <Wheel user={this.state.user} userId={this.state.user._id} />} />
+                <Route path="/wheel" render={() => <Wheel user={this.state.user} userId={this.state.user._id} _logout={this._logout} />} />
               }
               {loggedIn &&
                 <Route path="/filter" render={() => <Filter user={this.state.user} />} />

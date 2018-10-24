@@ -4,6 +4,7 @@ import axios from "axios"
 import Winwheel from 'winwheel'
 import SimpleModalWrapped from "../ResultModal/resultModal"
 import Header from "../Header/Header";
+import "../SpinWheel/wheel.css"
 
 class Wheel extends Component {
     // functions here
@@ -125,34 +126,34 @@ class Wheel extends Component {
      }
 
     //saving favorites to db
-    saveFavorites() {
-        //yelp link
-        //name
-        //address
-        // console.log(this.props.userId)
-        // let link = document.getElementById("link").getAttribute('href')
-        // let name = document.getElementById("placeName").innerText
-        // let address = document.getElementById("address").innerText
+    // saveFavorites() {
+    //     //yelp link
+    //     //name
+    //     //address
+    //     // console.log(this.props.userId)
+    //     // let link = document.getElementById("link").getAttribute('href')
+    //     // let name = document.getElementById("placeName").innerText
+    //     // let address = document.getElementById("address").innerText
         
 
-        console.log(link)
-        console.log(name)
-        console.log(address)
-        // axios.post("/api/favorites", {
-        //     name: name,
-        //     location: address,
-        //     site: link
-        // }).then(response => {
-        //     console.log("saved to favorites")
-        //     console.log(response)
-        // })
+    //     console.log(link)
+    //     console.log(name)
+    //     console.log(address)
+    //     // axios.post("/api/favorites", {
+    //     //     name: name,
+    //     //     location: address,
+    //     //     site: link
+    //     // }).then(response => {
+    //     //     console.log("saved to favorites")
+    //     //     console.log(response)
+    //     // })
         
-    }
+    // }
   
     render() {
         return (
             <div align="center">
-                <Header />
+                <Header _logout={this.props._logout} />
                 <canvas id='canvas' width='500' height='500'></canvas>
                 {/* <button onClick={() => this.spinBtn()}>Spin</button> */}
                 <div style={{paddingTop:50}}>

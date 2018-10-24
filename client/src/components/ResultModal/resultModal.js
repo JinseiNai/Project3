@@ -74,11 +74,11 @@ class SimpleModal extends Component {
                     <Typography variant="subtitle1" id="simple-modal-description">
                         <h3 id="placeName">{this.props.resultName}</h3>
                         <ul style={{listStyle: 'none'}}>
-                            <li id="rating">{this.props.resultRating}</li>
-                            <li id="address">{this.props.resultAddress1}</li>
-                            <li id="phone">{this.props.resultPhone}</li>
+                            <li id="rating">Rating: {this.props.resultRating}</li>
+                            <li id="address">Address: {this.props.resultAddress1}</li>
+                            <li id="phone">Phone: {this.props.resultPhone}</li>
+                            <li id="price">Price: {this.props.resultPrice}</li>
                             <li id="linkspot"><a id ="link" href={this.props.resultUrl} target="_blank">Yelp Link</a></li>
-                            <li id="price">{this.props.resultPrice}</li>
                         </ul>
                     </Typography>
                     <button onClick={this.saveFavorites}>Favorite</button>
