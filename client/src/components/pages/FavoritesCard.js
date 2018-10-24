@@ -59,73 +59,33 @@ function FavoritesCard(props) {
   const { classes } = props;
   const bull = <span className={classes.bullet}>•</span>;
 
-  return (
-    <div className={classes.layout}>
-    <Card className={classes.card}>
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary" align="center">
-          Fav Food Spot
-        </Typography>
-        <Typography variant="h5" align="center" component="h2">
-            Carl's Pizza Palace
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary" align="center">
-          pizza
-        </Typography>
-        <Typography component="p" align="center">
-          !!!
-          <br />
-          {'"the best!"'}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
-    </div>
-  );
-}
-
-
-// function FavoritesCard(props) {
-//     const { classes } = props;
-//     return (
-//       <div className={classes.layout}>
-//       <Card className={classes.card}>
-//         <CardActionArea align="center">
-//           <CardMedia
-//             className={classes.media}
-//             image="/static/images/cards/contemplative-reptile.jpg"
-//             title="Contemplative Reptile"
-//             align="center"
-//           />
-//         <CardContent>
-//           <Typography gutterBottom variant="h5" component="h2" align="center">
-//             Lizard
-//           </Typography>
-//           <Typography component="p" align="center">
-//             Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-//             across all continents except Antarctica
-//           </Typography>
-//         </CardContent>
-//       </CardActionArea>
-//       <CardActions>
-//         <Button size="small" color="primary">
-//           Share
-//         </Button>
-//         <Button size="small" color="primary">
-//           Learn More
-//         </Button>
-//       </CardActions>
-//     </Card>
-//     </div>
-//   );
-// }
-
-
-
-
-
+    return (
+      <div className={classes.layout}>
+      <Card className={classes.card}>
+        <CardContent>
+          <Typography className={classes.title} color="textSecondary" align="center">
+            Fav Food Spot
+          </Typography>
+          <Typography variant="h5" align="center" component="h2">
+              Carl's Pizza Palace
+          </Typography>
+          <Typography className={classes.pos} color="textSecondary" align="center">
+            pizza
+          </Typography>
+          <Typography component="p" align="center">
+            !!!
+            <br />
+            {'"the best!"'}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="small">Learn More</Button>
+        </CardActions>
+      </Card>
+      </div>
+    );
+  }
+  
 FavoritesCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
