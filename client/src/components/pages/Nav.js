@@ -36,13 +36,15 @@ class NavPage extends Component {
                 <div className="span2" > 
                 
                 <BtnList > 
-                    <li className="listitem" ><NavButton label="Favorites" /></li>
+                    <Link to='/favorites'>
+                    <li className="listitem" ><NavButton label="Favorites" /></li></Link>
                     <br></br>
-                    <li className="listitem"><NavButton label="Activities" /> </li>
-                    <br></br>
-                    <li className="listitem"><NavButton label="Create List" /> </li>
-                    <br></br>
-                    <li className="listitem"><NavButton label="Randomizer" /> </li>
+                    {/* <li className="listitem"><NavButton label="Activities" /> </li> */}
+                    {/* <br></br> */}
+                    {/* <li className="listitem"><NavButton label="Create List" /> </li> */}
+                    {/* <br></br> */}
+                    <Link to='/wheel'>
+                    <li className="listitem"><NavButton label="Randomizer" /> </li></Link>
                     
                 </BtnList>
                 </div>

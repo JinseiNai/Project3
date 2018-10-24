@@ -13,9 +13,9 @@ class Header extends Component {
          <h1 className="Header-title" >
          {/* Food Decid-a-nator!, Indecisi-Food, Food Roulette, Food Now!, Feed Me */}
          </h1>
-         <p className="Header-intro">
+         {/* <p className="Header-intro">
         Oh, where to eat!
-       </p>
+       </p> */}
        </header>
 
  

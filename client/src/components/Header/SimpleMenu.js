@@ -46,12 +46,12 @@ class SimpleMenu extends React.Component {
           </Link>
 
           <Link to='/wheel'>
-            <MenuItem onClick={this.handleClose}>Wheel</MenuItem>
+            <MenuItem onClick={this.handleClose}>Randomizer</MenuItem>
           </Link>
 
-          <MenuItem onClick={this.handleClose}>Restaurant List</MenuItem>
+          {/* <MenuItem onClick={this.handleClose}>Restaurant List</MenuItem> */}
 
-          <MenuItem onClick={this.handleClose}>Create a List</MenuItem>
+          {/* <MenuItem onClick={this.handleClose}>Create a List</MenuItem> */}
         </Menu>
       </div>
     );
