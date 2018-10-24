@@ -26,7 +26,9 @@ class Wheel extends Component {
         this.yelpHandler = this.yelpHandler.bind(this)
         // this.consolelogstate = this.consolelogstate.bind(this)
         // Colors for the wheel segments
-        this.colors = ['orange', 'red', 'blue', 'green', 'yellow', 'purple', 'pink', 'skyblue', 'teal', 'peach', 'tan']
+        this.colors = ['orange', 'red', 'blue', 'green', 'yellow', 'purple', 'pink', 'skyblue', 'teal', 'peach',
+        'beige', 'AliceBlue', 'Aqua', 'Aquamarine', 'CadetBlue', 'Crimson', 'DarkOrchid', 'Darksalmon', 'Gold', 'LightGreen', 'Plum',
+        'Thistle', 'YellowGreen', 'Silver', 'SeaGreen', 'SandyBrown', 'PapayaWhip', 'PaleGoldenRod', 'Magenta']
     }
 
     // modal
