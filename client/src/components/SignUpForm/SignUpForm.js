@@ -18,7 +18,10 @@ const styles = theme => ({
     },
     textField: {
         marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit
+        marginRight: theme.spacing.unit,
+    },
+    borderOverride: {
+        borderColor: 'green',
     },
     dense: {
         marginTop: 16,
@@ -91,6 +94,9 @@ class SignUp extends Component {
                             id="outlined-username"
                             label="Username"
                             className={classes.textField}
+                            InputProps={{
+                                classes: { notchedOutline: classes.borderOverride }
+                            }}               
                             value={this.state.name}
                             onChange={this.handleChange('username')}
                             margin="normal"
@@ -104,6 +110,9 @@ class SignUp extends Component {
                             id="outlined-password-input"
                             label="Password"
                             className={classes.textField}
+                            InputProps={{
+                                classes: { notchedOutline: classes.borderOverride }
+                            }}
                             type="password"
                             autoComplete="current-password"
                             onChange={this.handleChange('password')}
@@ -112,7 +121,7 @@ class SignUp extends Component {
                         />
                         </div>
                         <div align="center">
-                        <button className="btn btn-outline-info mt-1 ml-1" >Sign Up</button>
+                        <button className="btn btn-outline-success mt-1 ml-1" onClick={this.handleSubmit} >Sign Up</button>
                         </div>
             </div>
         )

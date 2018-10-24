@@ -13,8 +13,8 @@ import LoginForm from "./components/LoginForm/LoginForm";
 import Wheel from "./components/pages/Wheel"
 import NavPage from "./components/pages/Nav";
 import "./App.css";
-import logo from "./components/pages/gtfo.png"
-import wheel from "./components/Header/colorwheel.png"
+// import logo from "./components/pages/gtfo.png"
+// import wheel from "./components/Header/colorwheel.png"
 import Filter from "./components/pages/Filter";
 import Favorites from "./components/pages/Favorites";
 
@@ -98,7 +98,7 @@ class App extends Component {
               <Route exact path="/" component={HomePage} />
               <Route path="/login" render={() => <LoginForm _login={this._login} />} />
               <Route path="/signup" component={SignUpPage} />
-              <Route path="/nav" render={() => <NavPage user={this.state.user} />} />
+              <Route path="/nav" render={() => <NavPage _logout={this._logout} user={this.state.user} />} />
               <Route path="/wheel" render={() => <Wheel user={this.state.user} />} />
               <Route path="/filter" render={() => <Filter user={this.state.user} />} />     
               <Route path="/favorites" render={() => <Favorites user={this.state.user} />} />                         

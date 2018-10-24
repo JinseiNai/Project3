@@ -14,8 +14,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import SimpleMenu from './SimpleMenu'
-import Colorwheel from './colorwheel.png'
-import Logo from './gtfo.png'
+import Colorwheel from '../../colorwheel.png'
+import Logo from '../../gtfo.png'
 
 const styles = {
   root: {
@@ -114,7 +114,7 @@ class MenuAppBar extends React.Component {
                   onClose={this.handleClose}
                 >
                   <MenuItem onClick={this.handleClose}>Log Out</MenuItem>
-                  <MenuItem onClick={this.handleClose}>Profile</MenuItem>
+                  {/* <MenuItem onClick={this.handleClose}>Profile</MenuItem> */}
 
                 </Menu>
               </div>

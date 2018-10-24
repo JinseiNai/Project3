@@ -9,12 +9,12 @@ class Header extends Component {
      <div className="Header-Div">
      {/* < MenuAppBar /> */}
        <header className="Header">
-       < MenuAppBar />
+       < MenuAppBar _logout={this.props._logout} />
          <h1 className="Header-title" >
          {/* Food Decid-a-nator!, Indecisi-Food, Food Roulette, Food Now!, Feed Me */}
          </h1>
          <p className="Header-intro">
-       Oh, where to eat!
+        Oh, where to eat!
        </p>
        </header>
 

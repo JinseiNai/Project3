@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import styled from 'react-emotion'
 import Header from '../Header/Header';
 import NavButton from '../NavButtons/index';
+import { Redirect } from 'react-router-dom'
+
 
 const BtnList = styled('ul')`
     list-style: none;
@@ -25,10 +27,14 @@ class NavPage extends Component {
     }
     
     render() {
+        if (this.state.firstName) {
+            return <Redirect to={{ pathname: "/login" }} />
+        }
         return (
             <div align="center">
-                <Header />
-                <div class="span2" >
+                <Header _logout={this.props._logout} />
+                <div className="span2" > 
+                
                 <BtnList > 
                     <li className="listitem" ><NavButton label="Favorites" /></li>
                     <br></br>
@@ -37,7 +43,7 @@ class NavPage extends Component {
                     <li className="listitem"><NavButton label="Create List" /> </li>
                     <br></br>
                     <li className="listitem"><NavButton label="Randomizer" /> </li>
-                    <p>{this.state.firstName}</p>
+                    
                 </BtnList>
                 </div>
             </div>

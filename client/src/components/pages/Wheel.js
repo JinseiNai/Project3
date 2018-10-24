@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import axios from "axios"
 import Winwheel from 'winwheel'
 import SimpleModalWrapped from "../ResultModal/resultModal"
+import Header from "../Header/Header";
 
 class Wheel extends Component {
     // functions here
@@ -20,11 +21,10 @@ class Wheel extends Component {
                 'numSegments' : 0
             })
         }
-        this.chosenPlace = null
         this.yelpHandler = this.yelpHandler.bind(this)
         this.consolelogstate = this.consolelogstate.bind(this)
         // Colors for the wheel segments
-        this.colors = ['orange', 'red', 'blue', 'green', 'yellow', 'purple']
+        this.colors = ['orange', 'red', 'blue', 'green', 'yellow', 'purple', 'pink', 'skyblue', 'teal', 'peach', 'tan']
     }
 
     // modal
@@ -48,17 +48,20 @@ class Wheel extends Component {
         this.setState({ open: false });
     };
 
-    // Get result from whatever the spinning wheel lands on
-    updatePrize() {
-        var result = this.state.myWheel.getIndicatedSegment();
-        console.log(result);
-        this.chosenPlace = result
-    }
-
-    // Alert Prize
-    alertPrize() {
-        console.log(this.chosenPlace.text)
-        alert(this.chosenPlace.text)
+    // When spin button is clicked
+    // Start the spin animation
+    // then get result of indicated pointer
+    spinBtn() {
+        this.state.myWheel.startAnimation();
+        console.log(this.state.myWheel)
+        setTimeout(function() {
+            let result = this.state.myWheel.getIndicatedSegment();
+            console.log(result)
+            this.setState({
+                randomResult: result.text
+            })
+            console.log(this.state.randomResult)
+        }.bind(this), 3500)
     }
 
     // random number generator between 1-9
@@ -68,7 +71,6 @@ class Wheel extends Component {
         //  this.setState({ randomPlaceIndex: randomIndex });
         //  console.log(this.state.randomPlaceIndex);
         return Math.floor(Math.random() * 10);
-
      }
 
      componentDidMount() {
@@ -113,10 +115,9 @@ class Wheel extends Component {
                     'centerY' : 250,
                     'animation' : {
                         'type' : 'spinToStop',
-                        'duration' : 5,
+                        'duration' : 3,
                         'spins' : 8
-                    },
-                    // 'callbackFinished' : this.updatePrize()
+                    }
                 })
             },
             () => {
@@ -132,19 +133,14 @@ class Wheel extends Component {
     consolelogstate (){
         console.log(this.state.yelpResults)
     }
-
-    spinBtn() {
-        this.state.myWheel.startAnimation();
-        this.updatePrize();
-        this.alertPrize();
-    }
   
     render() {
         return (
             <div align="center">
+                <Header />
                 <canvas id='canvas' width='500' height='500'></canvas>
                 <button onClick={() => this.spinBtn()}>Spin</button>
-                <div  style={{paddingTop:110}}>
+                <div style={{paddingTop:110}}>
                     <button type="button" onClick={this.consolelogstate}  
                     className="btn btn-primary mt-3 ml-4 btn-lg">
                     Submit</button>
@@ -152,7 +148,6 @@ class Wheel extends Component {
                 <SimpleModalWrapped open={this.state.open} handleClose={this.handleClose} handleOpen={this.handleOpen} resultName={this.state.randomResult.name}
                     resultRating={this.state.randomResult.rating}
                     resultAddress1={this.state.resultLocation}
-                    // resultAddress2={this.state.randomResult.location.display_address[1]}
                     resultPhone={this.state.randomResult.phone}
                     resultUrl={this.state.randomResult.url} 
                     resultPrice = {this.state.randomResult.price}/>
@@ -160,4 +155,4 @@ class Wheel extends Component {
         )
     }
 }
-export default Wheel
+export default Wheel;
