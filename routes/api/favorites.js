@@ -9,7 +9,8 @@ router.route("/")
 // Matches with "/api/favorites/:id"
 router
   .route("/:id")
-  .get(favoritesController.findById)
+  .get(favoritesController.findByUserId)
+  .post(favoritesController.create)
   .put(favoritesController.update)
   .delete(favoritesController.remove);
 

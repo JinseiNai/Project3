@@ -24,7 +24,7 @@ class Wheel extends Component {
             // userId: ""
         }
         this.yelpHandler = this.yelpHandler.bind(this)
-        // this.consolelogstate = this.consolelogstate.bind(this)
+        
         // Colors for the wheel segments
         this.colors = ['orange', 'red', 'blue', 'green', 'yellow', 'purple', 'pink', 'skyblue', 'teal', 'peach',
         'beige', 'AliceBlue', 'Aqua', 'Aquamarine', 'CadetBlue', 'Crimson', 'DarkOrchid', 'Darksalmon', 'Gold', 'LightGreen', 'Plum',
@@ -140,29 +140,30 @@ class Wheel extends Component {
      }
 
     //saving favorites to db
-    // saveFavorites() {
-    //     //yelp link
-    //     //name
-    //     //address
-    //     // console.log(this.props.userId)
-    //     // let link = document.getElementById("link").getAttribute('href')
-    //     // let name = document.getElementById("placeName").innerText
-    //     // let address = document.getElementById("address").innerText
-        
+    saveFavorites() {
+        //yelp link
+        //name
+        //address
+        // console.log(this.props.userId)
+        let link = document.getElementById("link").getAttribute('href')
+        let name = document.getElementById("placeName").innerText
+        let address = document.getElementById("address").innerText
+        let userId = document.getElementById("result").getAttribute('data-id')
+        console.log(userId)
 
-    //     console.log(link)
-    //     console.log(name)
-    //     console.log(address)
-    //     // axios.post("/api/favorites", {
-    //     //     name: name,
-    //     //     location: address,
-    //     //     site: link
-    //     // }).then(response => {
-    //     //     console.log("saved to favorites")
-    //     //     console.log(response)
-    //     // })
-        
-    // }
+        // console.log(link)
+        // console.log(name)
+        // console.log(address)
+        let url = "/api/favorites/" + userId;
+        axios.post(url, {
+            name: name,
+            location: address,
+            site: link
+        }).then(response => {
+            console.log("saved to favorites")
+            console.log(response)
+        })
+    }
   
     render() {
         return (

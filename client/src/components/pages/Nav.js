@@ -19,17 +19,6 @@ class NavPage extends Component {
 
     }
 
-    
-    // componentDidUpdate(prevProps) {
-    //     if (prevProps.user !== this.props.user) {
-    //         this.setState({
-    //             firstName: this.props.user.local.username
-    //         })
-    //     }  
-    // }
-
-    
-
     render() {
         
         // waiting for conditional

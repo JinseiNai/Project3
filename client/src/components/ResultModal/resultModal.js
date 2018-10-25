@@ -81,7 +81,7 @@ class SimpleModal extends Component {
                             <li id="linkspot"><a id ="link" href={this.props.resultUrl} target="_blank">Yelp Link</a></li>
                         </ul>
                     </Typography>
-                    <button onClick={this.saveFavorites}>Favorite</button>
+                    <button onClick={this.props.saveFavorites}>Favorite</button>
                         <SimpleModalWrapped />
                     </div>
                 </Modal>
