@@ -35,20 +35,6 @@ class NavPage extends Component {
         // waiting for conditional
         return (
             <div align="center">
-<<<<<<< HEAD
-                <div className="span2" >
-                    <Header _logout={this.props._logout} />
-                    <BtnList >
-                        <li className="listitem" ><NavButton label="Favorites" /></li>
-                        <br></br>
-                        <li className="listitem"><NavButton label="Activities" /> </li>
-                        <br></br>
-                        <li className="listitem"><NavButton label="Create List" /> </li>
-                        <br></br>
-                        <li className="listitem"><NavButton label="Randomizer" /> </li>
-
-                    </BtnList>
-=======
                 <Header _logout={this.props._logout} />
                 <div className="span2" > 
                 
@@ -65,7 +51,6 @@ class NavPage extends Component {
                     
                 </BtnList>
 
->>>>>>> bcb1e2809289012492fc838c247d8ee4159d4d78
                 </div>
             </div>
         )
