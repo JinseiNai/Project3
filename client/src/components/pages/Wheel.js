@@ -4,6 +4,7 @@ import axios from "axios"
 import Winwheel from 'winwheel'
 import SimpleModalWrapped from "../ResultModal/resultModal"
 import Header from "../Header/Header";
+import "../SpinWheel/wheel.css"
 
 class Wheel extends Component {
     // functions here
@@ -25,7 +26,9 @@ class Wheel extends Component {
         this.yelpHandler = this.yelpHandler.bind(this)
         
         // Colors for the wheel segments
-        this.colors = ['orange', 'red', 'blue', 'green', 'yellow', 'purple', 'pink', 'skyblue', 'teal', 'peach', 'tan']
+        this.colors = ['orange', 'red', 'blue', 'green', 'yellow', 'purple', 'pink', 'skyblue', 'teal', 'peach',
+        'beige', 'AliceBlue', 'Aqua', 'Aquamarine', 'CadetBlue', 'Crimson', 'DarkOrchid', 'Darksalmon', 'Gold', 'LightGreen', 'Plum',
+        'Thistle', 'YellowGreen', 'Silver', 'SeaGreen', 'SandyBrown', 'PapayaWhip', 'PaleGoldenRod', 'Magenta']
     }
 
     // modal
@@ -43,6 +46,7 @@ class Wheel extends Component {
     // Start the spin animation
     // then get result of indicated pointer
     spinBtn() {
+        this.resetWheel();
         this.state.myWheel.startAnimation();
         console.log(this.state.myWheel)
         setTimeout(function() {
@@ -61,6 +65,13 @@ class Wheel extends Component {
         }.bind(this), 3500)
     }
 
+    // Resets the wheel after spin
+    resetWheel() {
+        this.state.myWheel.stopAnimation()
+        this.state.myWheel.rotationAngle = 0
+        this.state.myWheel.draw()
+    }
+
     // random number generator between 1-9
     // when plugging into place picker function yelpResults[parseInt(randomPlaceIndex)-1]
     handleRandomIndex() {
@@ -68,7 +79,6 @@ class Wheel extends Component {
      }
 
      componentDidMount() {
-    
         this.yelpHandler();
     }
 
@@ -111,7 +121,12 @@ class Wheel extends Component {
                         'duration' : 3,
                         'spins' : 8
                     },
-                    'pins' : true
+                    'pins' : true,
+                    'pointerGuide' : {
+                        'display' : true,
+                        'strokeStyle' : 'red',
+                        'lineWidth' : 3
+                    }
                 })
             },
             () => {
@@ -148,13 +163,12 @@ class Wheel extends Component {
             console.log("saved to favorites")
             console.log(response)
         })
-        
     }
   
     render() {
         return (
             <div align="center">
-                <Header />
+                <Header _logout={this.props._logout} />
                 <canvas id='canvas' width='500' height='500'></canvas>
                 {/* <button onClick={() => this.spinBtn()}>Spin</button> */}
                 <div style={{paddingTop:50}}>
