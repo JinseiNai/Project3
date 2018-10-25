@@ -73,7 +73,7 @@ class SimpleModal extends Component {
                     </Typography>
                     <Typography variant="subtitle1" id="simple-modal-description">
                         <h3 id="placeName">{this.props.resultName}</h3>
-                        <ul style={{listStyle: 'none'}}>
+                        <ul id="result" data-id={this.props.userId} style={{listStyle: 'none'}}>
                             <li id="rating">{this.props.resultRating}</li>
                             <li id="address">{this.props.resultAddress1}</li>
                             <li id="phone">{this.props.resultPhone}</li>
@@ -81,7 +81,7 @@ class SimpleModal extends Component {
                             <li id="price">{this.props.resultPrice}</li>
                         </ul>
                     </Typography>
-                    <button onClick={this.saveFavorites}>Favorite</button>
+                    <button onClick={this.props.saveFavorites}>Favorite</button>
                         <SimpleModalWrapped />
                     </div>
                 </Modal>

@@ -23,13 +23,13 @@ const styles = {
     maxWidth: 350,
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',   
+    alignItems: 'center',
   },
   bullet: {
     display: 'inline-block',
     margin: '0 2px',
     transform: 'scale(0.8)',
-    
+
   },
   title: {
     fontSize: 14,
@@ -58,34 +58,30 @@ const styles = {
 function FavoritesCard(props) {
   const { classes } = props;
   const bull = <span className={classes.bullet}>•</span>;
-
+  if (props) {
     return (
       <div className={classes.layout}>
-      <Card className={classes.card}>
-        <CardContent>
-          <Typography className={classes.title} color="textSecondary" align="center">
-            Fav Food Spot
-          </Typography>
-          <Typography variant="h5" align="center" component="h2">
-              Carl's Pizza Palace
-          </Typography>
-          <Typography className={classes.pos} color="textSecondary" align="center">
-            pizza
-          </Typography>
-          <Typography component="p" align="center">
-            !!!
+        <Card className={classes.card}>
+          <CardContent>
+            <Typography variant="h5" align="center" component="h2">
+              {props.name}
+            </Typography>
             <br />
-            {'"the best!"'}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
-      </Card>
+            <Typography className={classes.pos} color="textSecondary" align="center">
+              {props.location}
+            </Typography>
+            <br />
+            <Typography component="p" align="center">
+              <a href={props.site}>Yelp Link</a>
+              <br />
+            </Typography>
+          </CardContent>
+        </Card>
       </div>
     );
   }
-  
+}
+
 FavoritesCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };

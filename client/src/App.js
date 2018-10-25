@@ -110,10 +110,10 @@ class App extends Component {
                 <Route path="/wheel" render={() => <Wheel user={this.state.user} userId={this.state.user._id} />} />
               }
               {loggedIn &&
-                <Route path="/filter" render={() => <Filter user={this.state.user} />} />
+                <Route path="/filter" render={() => <Filter user={this.state.user} _logout={this._logout} />} />
               }
               {loggedIn &&
-                <Route path="/favorites" render={() => <Favorites user={this.state.user} />} />
+                <Route path="/favorites" render={() => <Favorites user={this.state.user} _logout={this._logout} />} />
               }
 
             </Switch>
