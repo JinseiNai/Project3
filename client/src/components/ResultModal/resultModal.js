@@ -73,7 +73,7 @@ class SimpleModal extends Component {
                     </Typography>
                     <Typography variant="subtitle1" id="simple-modal-description">
                         <h3 id="placeName">{this.props.resultName}</h3>
-                        <ul style={{listStyle: 'none'}}>
+                        <ul style={{listStyle: 'none'}} id='result' data-id={this.props.userId}>
                             <li id="rating">Rating: {this.props.resultRating}</li>
                             <li id="address">Address: {this.props.resultAddress1}</li>
                             <li id="phone">Phone: {this.props.resultPhone}</li>
